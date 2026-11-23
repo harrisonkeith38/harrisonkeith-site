@@ -6,98 +6,97 @@ import Layout from '../layouts/Layout.astro';
   title="Connect — Harrison Keith"
   description="Direct contact information, professional dialogue, and advisory inquiries for J. Harrison Keith."
 >
-  <div class="max-w-4xl mx-auto px-6 py-16">
+  <div class="max-w-4xl mx-auto px-6 sm:px-8 py-20">
     <!-- Header -->
-    <div class="space-y-4 pb-12 border-b border-bone-300">
-      <div class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-burnt-600 font-semibold">
+    <header class="space-y-6 pb-16 border-b border-bone-300">
+      <div class="flex items-center gap-2 text-[10px] font-mono uppercase tracking-widest text-graphite-500">
+        <span class="w-1.5 h-1.5 rounded-full bg-burnt-600"></span>
         <span>05 // Inquiries & Dialogue</span>
       </div>
-      <h1 class="font-serif text-4xl sm:text-5xl font-medium tracking-tight text-carbon-900 leading-tight">
+      <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl font-medium tracking-tight text-carbon-900 leading-[1.02]">
         Let’s start a conversation.
       </h1>
-      <p class="text-base text-graphite-600 max-w-xl font-normal leading-relaxed">
-        I am always interested in discussing strategic brand leadership opportunities, advisory roles, and conversations with ambitious operators and founders.
+      <p class="text-lg sm:text-xl text-graphite-600 font-light leading-relaxed max-w-xl font-sans">
+        Open to brand marketing leadership opportunities, strategic advisory, and collaborative dialogues with ambitious founders and operators.
       </p>
-    </div>
+    </header>
 
-    <!-- Contact Cards Grid -->
-    <div class="py-12 grid grid-cols-1 md:grid-cols-2 gap-8">
-      <!-- Card 1: Direct Email -->
-      <div class="bg-bone-50 border border-bone-300 rounded-sm p-8 space-y-6 flex flex-col justify-between hover:border-carbon-800 transition-all">
-        <div class="space-y-2">
-          <span class="text-xs font-mono uppercase tracking-wider text-burnt-600 font-semibold">
+    <!-- Clean Editorial Directory (Container-Free) -->
+    <div class="py-12 divide-y divide-bone-300 border-b border-bone-300">
+      <!-- Direct Email -->
+      <div class="py-10 grid grid-cols-1 sm:grid-cols-12 gap-6 items-baseline group">
+        <div class="sm:col-span-4">
+          <span class="text-xs font-mono uppercase tracking-widest text-burnt-600 font-bold block">
             Primary Channel
           </span>
-          <h2 class="font-serif text-2xl font-medium text-carbon-900">
-            Direct Email
-          </h2>
-          <p class="text-xs text-graphite-600 leading-relaxed">
-            For executive recruitment, strategic consulting inquiries, or thoughtful introductions.
-          </p>
+          <span class="text-sm font-sans text-graphite-500">Executive & Advisory Inquiries</span>
         </div>
-
-        <div class="pt-6 border-t border-bone-200">
+        <div class="sm:col-span-8">
           <a
             href="mailto:contact@jharrisonkeith.com"
-            class="inline-flex items-center gap-2 text-base font-mono text-carbon-900 hover:text-burnt-600 font-medium transition-colors"
+            class="font-serif text-2xl sm:text-3xl text-carbon-900 group-hover:text-burnt-600 font-medium transition-colors inline-flex items-center gap-2"
           >
             <span>contact@jharrisonkeith.com</span>
-            <span>&rarr;</span>
+            <span class="group-hover:translate-x-1 transition-transform">&rarr;</span>
           </a>
         </div>
       </div>
 
-      <!-- Card 2: LinkedIn -->
-      <div class="bg-bone-50 border border-bone-300 rounded-sm p-8 space-y-6 flex flex-col justify-between hover:border-carbon-800 transition-all">
-        <div class="space-y-2">
-          <span class="text-xs font-mono uppercase tracking-wider text-burnt-600 font-semibold">
-            Professional Network
+      <!-- LinkedIn -->
+      <div class="py-10 grid grid-cols-1 sm:grid-cols-12 gap-6 items-baseline group">
+        <div class="sm:col-span-4">
+          <span class="text-xs font-mono uppercase tracking-widest text-burnt-600 font-bold block">
+            Network
           </span>
-          <h2 class="font-serif text-2xl font-medium text-carbon-900">
-            LinkedIn
-          </h2>
-          <p class="text-xs text-graphite-600 leading-relaxed">
-            Connect directly, follow recent updates, or message me through the platform.
-          </p>
+          <span class="text-sm font-sans text-graphite-500">Professional Profile</span>
         </div>
-
-        <div class="pt-6 border-t border-bone-200">
+        <div class="sm:col-span-8">
           <a
-            href="https://www.linkedin.com"
+            href="https://linkedin.com"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 text-base font-mono text-carbon-900 hover:text-burnt-600 font-medium transition-colors"
+            class="font-serif text-2xl sm:text-3xl text-carbon-900 group-hover:text-burnt-600 font-medium transition-colors inline-flex items-center gap-2"
           >
-            <span>View LinkedIn Profile</span>
-            <span>&nearr;</span>
+            <span>linkedin.com/in/harrisonkeith</span>
+            <span class="group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform">&nearr;</span>
           </a>
         </div>
       </div>
 
-      <!-- Card 3: Location & Timezone -->
-      <div class="bg-bone-50 border border-bone-300 rounded-sm p-8 space-y-4">
-        <span class="text-xs font-mono uppercase tracking-wider text-graphite-500">
-          Base of Operations
-        </span>
-        <h3 class="font-serif text-xl font-medium text-carbon-900">
-          Austin, Texas
-        </h3>
-        <p class="text-xs text-graphite-600 leading-relaxed">
-          Central Time (CT). Open to travel and selective hybrid or on-site strategic engagements.
-        </p>
+      <!-- Base -->
+      <div class="py-10 grid grid-cols-1 sm:grid-cols-12 gap-6 items-baseline">
+        <div class="sm:col-span-4">
+          <span class="text-xs font-mono uppercase tracking-widest text-graphite-500 block">
+            Location
+          </span>
+          <span class="text-sm font-sans text-graphite-500">Base of Operations</span>
+        </div>
+        <div class="sm:col-span-8">
+          <span class="font-serif text-2xl text-carbon-900 block font-medium">
+            Austin, Texas
+          </span>
+          <span class="text-xs font-mono text-graphite-500 block mt-1">
+            Central Time (CT) &bull; Open to selective travel and hybrid leadership
+          </span>
+        </div>
       </div>
 
-      <!-- Card 4: Résumé Upon Request -->
-      <div class="bg-bone-50 border border-bone-300 rounded-sm p-8 space-y-4">
-        <span class="text-xs font-mono uppercase tracking-wider text-graphite-500">
-          Credentials
-        </span>
-        <h3 class="font-serif text-xl font-medium text-carbon-900">
-          Full Executive Résumé
-        </h3>
-        <p class="text-xs text-graphite-600 leading-relaxed">
-          Available directly upon request to protect personal contact information. Send an email and I will provide the latest PDF.
-        </p>
+      <!-- Résumé Upon Request -->
+      <div class="py-10 grid grid-cols-1 sm:grid-cols-12 gap-6 items-baseline">
+        <div class="sm:col-span-4">
+          <span class="text-xs font-mono uppercase tracking-widest text-graphite-500 block">
+            Credentials
+          </span>
+          <span class="text-sm font-sans text-graphite-500">Official Documentation</span>
+        </div>
+        <div class="sm:col-span-8 space-y-1">
+          <span class="font-serif text-2xl text-carbon-900 block font-medium">
+            Full Executive Résumé PDF
+          </span>
+          <p class="text-xs text-graphite-600 leading-relaxed font-sans font-light">
+            Available directly upon request to protect personal phone and contact details. Send an email and I will reply with the latest dossier.
+          </p>
+        </div>
       </div>
     </div>
   </div>

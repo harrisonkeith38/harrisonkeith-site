@@ -7,104 +7,106 @@ import { artifacts } from '../data/interests';
   title="My Interests — The Studio Wall — Harrison Keith"
   description="Curated gallery and studio backdrop of personal taste, design influences, footwear, typography, and endurance culture."
 >
-  <div class="max-w-6xl mx-auto px-6 py-16">
+  <div class="max-w-7xl mx-auto px-6 sm:px-8 py-20">
     <!-- Header -->
-    <div class="space-y-4 pb-12 border-b border-bone-300">
-      <div class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-burnt-600 font-semibold">
+    <header class="space-y-6 pb-16 border-b border-bone-300">
+      <div class="flex items-center gap-2 text-[10px] font-mono uppercase tracking-widest text-graphite-500">
+        <span class="w-1.5 h-1.5 rounded-full bg-burnt-600"></span>
         <span>04 // The Studio Wall & Cultural Archive</span>
       </div>
-      <h1 class="font-serif text-4xl sm:text-5xl font-medium tracking-tight text-carbon-900 leading-tight">
-        A Curated Archive of Taste & Influence
+      <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl font-medium tracking-tight text-carbon-900 leading-[1.02]">
+        A Living Archive of Taste & Influence
       </h1>
-      <p class="text-base text-graphite-600 max-w-2xl font-normal leading-relaxed">
-        Inspired by the backdrop of a creative home studio—a living collection of footwear, typography, industrial objects, identity systems, and landscapes that reflect my personal judgment and aesthetic standards.
+      <p class="text-lg sm:text-xl text-graphite-600 font-light leading-relaxed max-w-2xl font-sans">
+        Inspired by creative home office backdrops and design archives. An intentional curation of footwear, typography, industrial objects, identity systems, and topography that trains my intuition.
       </p>
 
-      <!-- Category Filter Buttons -->
-      <div class="pt-6 flex flex-wrap gap-2" id="artifact-filters">
+      <!-- Category Filter Links -->
+      <div class="pt-6 flex flex-wrap items-center gap-4 text-xs font-mono uppercase tracking-widest" id="artifact-filters">
         <button
           data-filter="all"
-          class="art-filter-btn active px-3.5 py-1.5 rounded-sm text-xs font-mono uppercase tracking-wider bg-carbon-900 text-bone-50 transition-all"
+          class="art-filter-link active text-burnt-600 font-bold transition-colors"
         >
-          All Artifacts ({artifacts.length})
+          All Items ({artifacts.length})
         </button>
+        <span class="text-bone-400">/</span>
         <button
           data-filter="footwear"
-          class="art-filter-btn px-3.5 py-1.5 rounded-sm text-xs font-mono uppercase tracking-wider bg-bone-200 text-carbon-800 hover:bg-bone-300 transition-all"
+          class="art-filter-link text-carbon-800 hover:text-burnt-600 transition-colors"
         >
           Footwear
         </button>
+        <span class="text-bone-400">/</span>
         <button
           data-filter="identity"
-          class="art-filter-btn px-3.5 py-1.5 rounded-sm text-xs font-mono uppercase tracking-wider bg-bone-200 text-carbon-800 hover:bg-bone-300 transition-all"
+          class="art-filter-link text-carbon-800 hover:text-burnt-600 transition-colors"
         >
           Logos & Identity
         </button>
+        <span class="text-bone-400">/</span>
         <button
           data-filter="typography"
-          class="art-filter-btn px-3.5 py-1.5 rounded-sm text-xs font-mono uppercase tracking-wider bg-bone-200 text-carbon-800 hover:bg-bone-300 transition-all"
+          class="art-filter-link text-carbon-800 hover:text-burnt-600 transition-colors"
         >
           Typography
         </button>
+        <span class="text-bone-400">/</span>
         <button
           data-filter="objects"
-          class="art-filter-btn px-3.5 py-1.5 rounded-sm text-xs font-mono uppercase tracking-wider bg-bone-200 text-carbon-800 hover:bg-bone-300 transition-all"
+          class="art-filter-link text-carbon-800 hover:text-burnt-600 transition-colors"
         >
           Industrial Design
         </button>
+        <span class="text-bone-400">/</span>
         <button
           data-filter="spaces"
-          class="art-filter-btn px-3.5 py-1.5 rounded-sm text-xs font-mono uppercase tracking-wider bg-bone-200 text-carbon-800 hover:bg-bone-300 transition-all"
+          class="art-filter-link text-carbon-800 hover:text-burnt-600 transition-colors"
         >
-          Spaces & Topography
+          Topography
         </button>
+        <span class="text-bone-400">/</span>
         <button
           data-filter="endurance"
-          class="art-filter-btn px-3.5 py-1.5 rounded-sm text-xs font-mono uppercase tracking-wider bg-bone-200 text-carbon-800 hover:bg-bone-300 transition-all"
+          class="art-filter-link text-carbon-800 hover:text-burnt-600 transition-colors"
         >
           Endurance
         </button>
       </div>
-    </div>
+    </header>
 
-    <!-- The Gallery Wall Grid -->
-    <div class="py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" id="artifacts-grid">
-      {artifacts.map((item) => (
+    <!-- The Studio Gallery Grid (Asymmetric Editorial Layout, No Box Cards) -->
+    <div class="py-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-16 border-b border-bone-300" id="artifacts-grid">
+      {artifacts.map((item, idx) => (
         <article
-          class="artifact-card bg-bone-50 border border-bone-300 rounded-sm overflow-hidden flex flex-col justify-between hover:border-carbon-800 hover:shadow-md transition-all group"
+          class="artifact-item space-y-4 group"
           data-category={item.category}
         >
-          <!-- Image Container -->
-          <div class="aspect-[4/3] w-full overflow-hidden bg-bone-200 relative">
+          <!-- Image Frame with Hairline Border -->
+          <div class="aspect-[4/3] w-full overflow-hidden bg-bone-200 border border-bone-300 relative">
             <img
               src={item.image}
               alt={item.title}
-              class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-300"
+              class="w-full h-full object-cover grayscale contrast-105 group-hover:grayscale-0 group-hover:scale-[1.03] transition-all duration-500"
               loading="lazy"
             />
-            <div class="absolute top-3 right-3 bg-carbon-900/80 backdrop-blur-sm text-bone-100 text-[10px] font-mono uppercase px-2.5 py-0.5 rounded">
+            <div class="absolute top-2.5 right-2.5 bg-carbon-900/80 backdrop-blur-sm text-bone-100 text-[9px] font-mono uppercase tracking-widest px-2 py-0.5">
               {item.categoryLabel}
             </div>
-            {item.year && (
-              <div class="absolute bottom-3 left-3 bg-bone-100/90 backdrop-blur-sm text-carbon-900 text-[10px] font-mono px-2 py-0.5 rounded border border-bone-300">
-                {item.year}
-              </div>
-            )}
+            <div class="absolute bottom-2.5 left-2.5 text-bone-100/90 text-[10px] font-mono tracking-widest">
+              FIG. 0{idx + 1}
+            </div>
           </div>
 
-          <!-- Card Body -->
-          <div class="p-6 flex flex-col justify-between flex-grow space-y-4">
-            <div class="space-y-1">
-              <span class="text-[11px] font-mono uppercase tracking-wider text-burnt-600 block">
-                {item.source}
-              </span>
-              <h2 class="font-serif text-2xl font-medium text-carbon-900 group-hover:text-burnt-600 transition-colors leading-snug">
-                {item.title}
-              </h2>
+          <!-- Museum Caption -->
+          <div class="space-y-1.5 pt-1">
+            <div class="flex items-baseline justify-between text-[11px] font-mono text-graphite-500">
+              <span class="text-burnt-600 font-semibold">{item.source}</span>
+              {item.year && <span>{item.year}</span>}
             </div>
-
-            <!-- Punchy Commentary -->
-            <p class="text-xs text-graphite-700 leading-relaxed font-sans pt-2 border-t border-bone-200">
+            <h2 class="font-serif text-2xl font-medium text-carbon-900 group-hover:text-burnt-600 transition-colors leading-snug">
+              {item.title}
+            </h2>
+            <p class="text-xs text-graphite-600 font-sans font-light leading-relaxed pt-1">
               "{item.note}"
             </p>
           </div>
@@ -112,40 +114,40 @@ import { artifacts } from '../data/interests';
       ))}
     </div>
 
-    <!-- Curator Note -->
-    <div class="border-t border-bone-300 pt-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 text-xs font-mono text-graphite-600">
+    <!-- Curator Colophon -->
+    <div class="pt-12 flex flex-col sm:flex-row items-baseline justify-between gap-6 text-xs font-mono text-graphite-500">
       <div>
-        <span class="font-semibold text-carbon-900">Curator Note:</span> This wall evolves continuously with new field photography, research, and acquired references.
+        <span>INDEX COUNT:</span> <strong class="text-carbon-900">{artifacts.length} ARTIFACTS</strong> &bull; Curated and updated regularly
       </div>
       <div>
-        Total Indexed Items: <span class="font-bold text-carbon-900">{artifacts.length}</span>
+        <a href="/connect" class="text-burnt-600 hover:text-burnt-700 font-semibold uppercase tracking-widest">Inquire / Suggest an Artifact &rarr;</a>
       </div>
     </div>
   </div>
 </Layout>
 
 <script>
-  const filterBtns = document.querySelectorAll('.art-filter-btn');
-  const artifactCards = document.querySelectorAll('.artifact-card');
+  const filterLinks = document.querySelectorAll('.art-filter-link');
+  const artifactItems = document.querySelectorAll('.artifact-item');
 
-  filterBtns.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach((b) => {
-        b.classList.remove('active', 'bg-carbon-900', 'text-bone-50');
-        b.classList.add('bg-bone-200', 'text-carbon-800');
+  filterLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+      filterLinks.forEach((l) => {
+        l.classList.remove('active', 'text-burnt-600', 'font-bold');
+        l.classList.add('text-carbon-800');
       });
 
-      btn.classList.remove('bg-bone-200', 'text-carbon-800');
-      btn.classList.add('active', 'bg-carbon-900', 'text-bone-50');
+      link.classList.remove('text-carbon-800');
+      link.classList.add('active', 'text-burnt-600', 'font-bold');
 
-      const filter = btn.getAttribute('data-filter');
+      const filter = link.getAttribute('data-filter');
 
-      artifactCards.forEach((card) => {
-        const cat = card.getAttribute('data-category');
+      artifactItems.forEach((item) => {
+        const cat = item.getAttribute('data-category');
         if (filter === 'all' || cat === filter) {
-          (card as HTMLElement).style.display = 'flex';
+          (item as HTMLElement).style.display = 'block';
         } else {
-          (card as HTMLElement).style.display = 'none';
+          (item as HTMLElement).style.display = 'none';
         }
       });
     });

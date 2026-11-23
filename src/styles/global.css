@@ -5,24 +5,31 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    background-color: #F5F4EE;
-    color: #161817;
+    background-color: #F7F6F2;
+    color: #141514;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   ::selection {
-    background-color: #BF592F;
-    color: #FAF9F6;
+    background-color: #BA4E22;
+    color: #FCFBF9;
   }
 }
 
-/* Custom subtle noise background */
+/* Subtle editorial paper texture */
 .bg-grain {
-  background-image: radial-gradient(rgba(22, 24, 23, 0.04) 1px, transparent 0);
-  background-size: 24px 24px;
+  background-image: radial-gradient(rgba(20, 21, 20, 0.04) 1px, transparent 0);
+  background-size: 20px 20px;
 }
 
-/* Horizontal scrollbar hide */
+/* Hairline border utility */
+.border-hairline {
+  border-color: #E2DED4;
+}
+
+/* Hide scrollbars */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }

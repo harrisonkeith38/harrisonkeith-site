@@ -2,64 +2,54 @@
 const pathname = new URL(Astro.request.url).pathname;
 
 const navItems = [
-  { href: '/about', label: 'About Me' },
-  { href: '/timeline', label: 'Career Timeline' },
-  { href: '/projects', label: 'My Projects' },
-  { href: '/interests', label: 'My Interests' },
+  { href: '/about', label: 'About' },
+  { href: '/timeline', label: 'Timeline' },
+  { href: '/projects', label: 'Projects' },
+  { href: '/interests', label: 'Interests' },
   { href: '/connect', label: 'Connect' },
 ];
 ---
 
-<header class="sticky top-0 z-50 bg-bone-100/90 backdrop-blur-md border-b border-bone-300 transition-all duration-200">
-  <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+<header class="sticky top-0 z-50 bg-bone-100/95 backdrop-blur-md border-b border-bone-300">
+  <div class="max-w-7xl mx-auto px-6 sm:px-8 h-20 flex items-center justify-between">
     <!-- Brand Name / Logo -->
-    <a href="/" class="group flex flex-col">
-      <span class="font-serif text-2xl font-semibold tracking-tight text-carbon-900 group-hover:text-burnt-600 transition-colors">
+    <a href="/" class="group flex items-baseline gap-3">
+      <span class="font-serif text-2xl sm:text-3xl font-medium tracking-tight text-carbon-900 group-hover:text-burnt-600 transition-colors">
         Harrison Keith
       </span>
-      <span class="text-[10px] font-mono uppercase tracking-widest text-graphite-500">
-        Austin, TX &bull; Strategy & Leadership
+      <span class="hidden sm:inline-block text-[10px] font-mono uppercase tracking-widest text-graphite-500">
+        Austin, TX &bull; 30.2672° N, 97.7431° W
       </span>
     </a>
 
     <!-- Desktop Navigation -->
-    <nav class="hidden md:flex items-center space-x-8">
+    <nav class="hidden md:flex items-center space-x-7">
       {navItems.map((item) => {
         const isActive = pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href));
         return (
           <a
             href={item.href}
-            class={`relative text-xs uppercase tracking-wider font-mono py-1 transition-all ${
+            class={`text-[11px] uppercase tracking-widest font-mono transition-colors flex items-center gap-1.5 ${
               isActive
                 ? 'text-burnt-600 font-semibold'
                 : 'text-carbon-800 hover:text-burnt-600'
             }`}
           >
-            {item.label}
-            {isActive && (
-              <span class="absolute bottom-0 left-0 w-full h-[1.5px] bg-burnt-600 rounded-full" />
-            )}
+            {isActive && <span class="w-1.5 h-1.5 rounded-full bg-burnt-600"></span>}
+            <span>{item.label}</span>
           </a>
         );
       })}
-      
-      <!-- Connect CTA -->
-      <a
-        href="/connect"
-        class="text-xs uppercase font-mono tracking-wider px-4 py-2 border border-carbon-800 hover:border-burnt-600 hover:bg-burnt-600 hover:text-bone-50 text-carbon-900 rounded-sm transition-all duration-150"
-      >
-        Get in Touch
-      </a>
     </nav>
 
     <!-- Mobile Menu Button -->
     <button
       id="mobile-menu-btn"
       class="md:hidden p-2 text-carbon-900 hover:text-burnt-600 focus:outline-none"
-      aria-label="Toggle navigation menu"
+      aria-label="Toggle navigation"
     >
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" />
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8h18M3 16h18" />
       </svg>
     </button>
   </div>
@@ -69,7 +59,7 @@ const navItems = [
     {navItems.map((item) => (
       <a
         href={item.href}
-        class="block font-mono text-sm uppercase tracking-wider text-carbon-900 hover:text-burnt-600 py-2 border-b border-bone-200"
+        class="block font-mono text-xs uppercase tracking-widest text-carbon-900 hover:text-burnt-600 py-1.5 border-b border-bone-200"
       >
         {item.label}
       </a>

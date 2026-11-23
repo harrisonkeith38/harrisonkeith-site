@@ -5,29 +5,29 @@ export default {
     extend: {
       colors: {
         bone: {
-          50: '#FAF9F6',
-          100: '#F5F4EE',
-          200: '#EBE9DF',
-          300: '#DEDACF',
-          400: '#C7C2B4',
+          50: '#FCFBF9',
+          100: '#F7F6F2',
+          200: '#EFECE4',
+          300: '#E2DED4',
+          400: '#C8C3B6',
         },
         carbon: {
-          950: '#0F1010',
-          900: '#161817',
-          850: '#1D201F',
-          800: '#262928',
-          700: '#383C3A',
+          950: '#0C0D0C',
+          900: '#141514',
+          850: '#1B1D1C',
+          800: '#262827',
+          700: '#3A3D3B',
         },
         burnt: {
-          500: '#D96536',
-          600: '#BF592F',
-          700: '#9E4420',
+          500: '#D25A2B',
+          600: '#BA4E22',
+          700: '#9A3F19',
         },
         graphite: {
-          400: '#8E9590',
-          500: '#777E79',
-          600: '#5E6460',
-          700: '#464B48',
+          400: '#8E9490',
+          500: '#6E7470',
+          600: '#525754',
+          700: '#3B3E3C',
         },
       },
       fontFamily: {
@@ -36,8 +36,7 @@ export default {
         mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
       },
       animation: {
-        'marquee': 'marquee 25s linear infinite',
-        'marquee-slow': 'marquee 40s linear infinite',
+        'marquee': 'marquee 30s linear infinite',
       },
       keyframes: {
         marquee: {

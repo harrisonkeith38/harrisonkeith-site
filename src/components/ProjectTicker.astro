@@ -1,69 +1,44 @@
 ---
 interface TickerItem {
-  tag: string;
+  index: string;
   title: string;
-  org: string;
-  href: string;
+  category: string;
 }
 
 const items: TickerItem[] = [
-  { tag: 'BRAND STRATEGY', title: 'Heritage Spirits Repositioning', org: 'Jim Beam', href: '/projects' },
-  { tag: 'CONSUMER INSIGHTS', title: 'Brand Elasticity & Cult Loyalty', org: 'YETI Advisory', href: '/projects' },
-  { tag: 'OPERATIONAL COMMAND', title: 'Decentralized High-Stakes Execution', org: 'U.S. Army', href: '/projects' },
-  { tag: 'COMMUNITY CULTURE', title: 'Endurance Athletics Activation', org: 'Grassroots Performance', href: '/projects' },
-  { tag: 'STRATEGIC FRAMEWORK', title: 'Occasion-Driven Portfolio Architecture', org: 'McCombs MBA', href: '/projects' },
+  { index: '01', title: 'Jim Beam', category: 'Heritage Spirits Repositioning' },
+  { index: '02', title: 'YETI', category: 'Brand Elasticity & Cult Loyalty' },
+  { index: '03', title: 'U.S. Army', category: 'Mission Command & Decentralized Execution' },
+  { index: '04', title: 'Endurance Athletics', category: 'Grassroots Performance Culture' },
+  { index: '05', title: 'McCombs MBA', category: 'Brand Management & Market Architecture' },
 ];
 ---
 
-<div class="w-full bg-carbon-900 text-bone-100 py-4 border-y border-carbon-800 overflow-hidden relative group">
-  <!-- Subtle label indicator on left -->
-  <div class="absolute left-0 top-0 bottom-0 z-10 px-4 bg-carbon-900/90 backdrop-blur-sm hidden sm:flex items-center border-r border-carbon-800">
-    <span class="text-[10px] font-mono uppercase tracking-widest text-burnt-500 font-semibold flex items-center gap-2">
-      <span class="w-1.5 h-1.5 rounded-full bg-burnt-500 animate-pulse"></span>
-      Selected Work
-    </span>
-  </div>
-
-  <div class="flex select-none space-x-8 animate-marquee group-hover:[animation-play-state:paused] whitespace-nowrap pl-24">
-    <!-- First instance -->
+<div class="w-full border-y border-bone-300 bg-bone-50/50 py-3 overflow-hidden group select-none">
+  <div class="flex space-x-12 animate-marquee group-hover:[animation-play-state:paused] whitespace-nowrap">
+    <!-- Stream 1 -->
     {items.map((item) => (
       <a
-        href={item.href}
-        class="inline-flex items-center gap-3 px-4 py-1.5 rounded bg-carbon-850 hover:bg-carbon-800 border border-carbon-700/60 hover:border-burnt-600 transition-all text-xs font-mono group/item"
+        href="/projects"
+        class="inline-flex items-center gap-3 text-xs font-mono uppercase tracking-widest text-carbon-800 hover:text-burnt-600 transition-colors"
       >
-        <span class="text-graphite-400 group-hover/item:text-burnt-500 font-bold transition-colors">
-          [{item.tag}]
-        </span>
-        <span class="text-bone-100 font-sans font-medium">
-          {item.title}
-        </span>
-        <span class="text-graphite-400 text-[11px]">
-          &bull; {item.org}
-        </span>
-        <span class="text-burnt-500 opacity-0 group-hover/item:opacity-100 transition-opacity">
-          &rarr;
-        </span>
+        <span class="text-burnt-600 font-semibold">[{item.index}]</span>
+        <span class="font-bold text-carbon-900">{item.title}</span>
+        <span class="text-graphite-500 font-normal">/ {item.category}</span>
+        <span class="text-graphite-400 pl-4">&bull;</span>
       </a>
     ))}
 
-    <!-- Duplicate for infinite seamless scroll -->
+    <!-- Stream 2 (Seamless loop) -->
     {items.map((item) => (
       <a
-        href={item.href}
-        class="inline-flex items-center gap-3 px-4 py-1.5 rounded bg-carbon-850 hover:bg-carbon-800 border border-carbon-700/60 hover:border-burnt-600 transition-all text-xs font-mono group/item"
+        href="/projects"
+        class="inline-flex items-center gap-3 text-xs font-mono uppercase tracking-widest text-carbon-800 hover:text-burnt-600 transition-colors"
       >
-        <span class="text-graphite-400 group-hover/item:text-burnt-500 font-bold transition-colors">
-          [{item.tag}]
-        </span>
-        <span class="text-bone-100 font-sans font-medium">
-          {item.title}
-        </span>
-        <span class="text-graphite-400 text-[11px]">
-          &bull; {item.org}
-        </span>
-        <span class="text-burnt-500 opacity-0 group-hover/item:opacity-100 transition-opacity">
-          &rarr;
-        </span>
+        <span class="text-burnt-600 font-semibold">[{item.index}]</span>
+        <span class="font-bold text-carbon-900">{item.title}</span>
+        <span class="text-graphite-500 font-normal">/ {item.category}</span>
+        <span class="text-graphite-400 pl-4">&bull;</span>
       </a>
     ))}
   </div>

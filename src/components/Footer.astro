@@ -2,72 +2,71 @@
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="border-t border-bone-300 bg-bone-100 text-carbon-900 mt-24">
-  <div class="max-w-6xl mx-auto px-6 py-16">
+<footer class="border-t border-bone-300 bg-bone-100 text-carbon-900 mt-32">
+  <div class="max-w-7xl mx-auto px-6 sm:px-8 py-16">
     <div class="grid grid-cols-1 md:grid-cols-12 gap-12 pb-16 border-b border-bone-300">
-      <!-- Col 1: Bio / Philosophy -->
-      <div class="md:col-span-5 space-y-4">
-        <span class="font-serif text-2xl font-medium tracking-tight text-carbon-900 block">
+      <!-- Col 1: Bio -->
+      <div class="md:col-span-6 space-y-4">
+        <span class="font-serif text-3xl font-medium tracking-tight text-carbon-900 block">
           Harrison Keith
         </span>
-        <p class="text-sm text-graphite-600 max-w-sm leading-relaxed">
-          The intersection of military leadership, McCombs MBA business strategy, and brand marketing. Unbound in curiosity, disciplined in execution.
+        <p class="text-sm text-graphite-600 max-w-md leading-relaxed font-sans">
+          The intersection of military operational leadership, McCombs MBA business strategy, and brand marketing. Unbound in curiosity, disciplined in execution.
         </p>
-        <div class="pt-2">
-          <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-mono uppercase tracking-wider bg-bone-200 border border-bone-300 text-carbon-800">
-            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-            Based in Austin, Texas
-          </span>
+        <div class="text-[11px] font-mono uppercase tracking-widest text-graphite-500 pt-2 flex items-center gap-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-burnt-600"></span>
+          <span>Based in Austin, Texas &bull; Open to Strategic Leadership</span>
         </div>
       </div>
 
       <!-- Col 2: Navigation -->
       <div class="md:col-span-3 space-y-3">
-        <h4 class="text-xs font-mono uppercase tracking-wider text-graphite-500">Navigation</h4>
-        <ul class="space-y-2 text-sm font-sans">
-          <li><a href="/about" class="hover:text-burnt-600 transition-colors">About Me</a></li>
-          <li><a href="/timeline" class="hover:text-burnt-600 transition-colors">Career Timeline</a></li>
-          <li><a href="/projects" class="hover:text-burnt-600 transition-colors">My Projects</a></li>
-          <li><a href="/interests" class="hover:text-burnt-600 transition-colors">My Interests</a></li>
-          <li><a href="/connect" class="hover:text-burnt-600 transition-colors">Connect</a></li>
+        <span class="text-[10px] font-mono uppercase tracking-widest text-graphite-500 block">
+          Index
+        </span>
+        <ul class="space-y-2 text-xs font-mono uppercase tracking-wider">
+          <li><a href="/about" class="text-carbon-800 hover:text-burnt-600 transition-colors">About</a></li>
+          <li><a href="/timeline" class="text-carbon-800 hover:text-burnt-600 transition-colors">Timeline</a></li>
+          <li><a href="/projects" class="text-carbon-800 hover:text-burnt-600 transition-colors">Projects</a></li>
+          <li><a href="/interests" class="text-carbon-800 hover:text-burnt-600 transition-colors">Interests</a></li>
+          <li><a href="/connect" class="text-carbon-800 hover:text-burnt-600 transition-colors">Connect</a></li>
         </ul>
       </div>
 
-      <!-- Col 3: Direct Connect -->
-      <div class="md:col-span-4 space-y-3">
-        <h4 class="text-xs font-mono uppercase tracking-wider text-graphite-500">Inquiries & Dialogue</h4>
-        <p class="text-sm text-graphite-600 leading-relaxed">
-          Open to brand marketing leadership, strategic advisory, and collaborative dialogues with visionary operators.
-        </p>
-        <div class="pt-2 flex flex-col space-y-2">
+      <!-- Col 3: Direct Inquiries -->
+      <div class="md:col-span-3 space-y-3">
+        <span class="text-[10px] font-mono uppercase tracking-widest text-graphite-500 block">
+          Inquiries
+        </span>
+        <div class="space-y-2 text-xs font-mono">
           <a
             href="mailto:contact@jharrisonkeith.com"
-            class="inline-flex items-center gap-2 text-sm font-mono text-burnt-600 hover:text-burnt-700 font-medium"
+            class="block text-burnt-600 hover:text-burnt-700 font-medium"
           >
-            <span>contact@jharrisonkeith.com</span>
-            <span>&rarr;</span>
+            contact@jharrisonkeith.com &rarr;
           </a>
           <a
             href="https://linkedin.com"
             target="_blank"
             rel="noopener noreferrer"
-            class="text-xs font-mono text-graphite-600 hover:text-carbon-900 transition-colors"
+            class="block text-graphite-600 hover:text-carbon-900 transition-colors"
           >
             LinkedIn Profile &nearr;
           </a>
+          <span class="block text-graphite-500 text-[11px] pt-1">
+            Résumé available upon request
+          </span>
         </div>
       </div>
     </div>
 
     <!-- Bottom Bar -->
-    <div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-mono text-graphite-500">
+    <div class="pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-[11px] font-mono text-graphite-500">
       <div>
         &copy; {currentYear} J. Harrison Keith. All rights reserved.
       </div>
-      <div class="flex items-center gap-6">
-        <span>Designed with Intention</span>
-        <span>&bull;</span>
-        <span>Fast, Zero-JS Architecture</span>
+      <div>
+        Zero Runtime Overhead &bull; Designed with Editorial Restraint
       </div>
     </div>
   </div>
