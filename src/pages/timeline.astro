@@ -1,0 +1,118 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { timeline } from '../data/timeline';
+---
+
+<Layout
+  title="Career Timeline — Harrison Keith"
+  description="Chronological career journey and milestones across military leadership, McCombs MBA, and brand marketing strategy."
+>
+  <div class="max-w-4xl mx-auto px-6 py-16">
+    <!-- Header -->
+    <div class="space-y-4 pb-12 border-b border-bone-300">
+      <div class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-burnt-600 font-semibold">
+        <span>02 // Professional Experience</span>
+      </div>
+      <h1 class="font-serif text-4xl sm:text-5xl font-medium tracking-tight text-carbon-900 leading-tight">
+        Career Milestones & Leadership Journey
+      </h1>
+      <p class="text-base text-graphite-600 max-w-2xl font-normal leading-relaxed">
+        A progressive arc connecting operational command, top-tier business education, and brand marketing strategy. Unbound in ambition, directed in purpose.
+      </p>
+
+      <div class="pt-2 flex items-center gap-4 text-xs font-mono">
+        <span class="text-graphite-500">Official Résumé:</span>
+        <a href="/connect" class="text-burnt-600 hover:text-burnt-700 font-medium hover:underline">
+          Available upon request &rarr;
+        </a>
+      </div>
+    </div>
+
+    <!-- Interactive Timeline Stream -->
+    <div class="py-12 relative">
+      <!-- Vertical Connecting Line -->
+      <div class="absolute left-4 md:left-8 top-16 bottom-16 w-[1.5px] bg-bone-300"></div>
+
+      <div class="space-y-16">
+        {timeline.map((item, index) => (
+          <div class="relative flex items-start space-x-6 md:space-x-10 group">
+            <!-- Timeline Marker Icon / Dot -->
+            <div class="relative z-10 flex-shrink-0 w-8 h-8 md:w-16 md:h-16 rounded-full bg-bone-100 border-2 border-carbon-800 flex items-center justify-center group-hover:border-burnt-600 group-hover:scale-105 transition-all">
+              <span class="text-[10px] md:text-xs font-mono font-bold text-carbon-900 group-hover:text-burnt-600">
+                0{index + 1}
+              </span>
+            </div>
+
+            <!-- Content Card -->
+            <div class="flex-grow bg-bone-50 border border-bone-300 rounded-sm p-6 md:p-8 space-y-6 hover:border-carbon-800 transition-all">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-bone-200 pb-4">
+                <div>
+                  <span class="text-xs font-mono uppercase tracking-wider text-burnt-600 font-semibold block">
+                    {item.organization}
+                  </span>
+                  <h2 class="font-serif text-2xl font-medium text-carbon-900 mt-1">
+                    {item.role}
+                  </h2>
+                </div>
+                <div class="flex flex-col sm:items-end text-xs font-mono text-graphite-500">
+                  <span class="px-2.5 py-1 bg-bone-200 rounded font-semibold text-carbon-800">
+                    {item.period}
+                  </span>
+                  <span class="mt-1 text-[11px]">{item.location}</span>
+                </div>
+              </div>
+
+              <!-- Summary -->
+              <p class="text-sm text-carbon-800 leading-relaxed font-sans">
+                {item.summary}
+              </p>
+
+              <!-- Responsibilities -->
+              <div class="space-y-2">
+                <h3 class="text-xs font-mono uppercase tracking-wider text-graphite-500">
+                  Key Scope & Execution
+                </h3>
+                <ul class="space-y-2 text-xs md:text-sm text-graphite-700">
+                  {item.responsibilities.map((resp) => (
+                    <li class="flex items-start gap-2.5">
+                      <span class="text-burnt-600 font-mono mt-0.5">&bull;</span>
+                      <span class="leading-relaxed">{resp}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <!-- Capabilities Unlocked -->
+              <div class="pt-4 border-t border-bone-200">
+                <h4 class="text-[11px] font-mono uppercase tracking-wider text-graphite-500 mb-2">
+                  Core Competencies & Capabilities
+                </h4>
+                <div class="flex flex-wrap gap-2">
+                  {item.capabilitiesUnlocked.map((cap) => (
+                    <span class="text-[11px] font-mono px-2.5 py-1 bg-bone-200/80 border border-bone-300 text-carbon-900 rounded-sm">
+                      {cap}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Contact Callout -->
+    <div class="mt-12 p-8 bg-carbon-900 text-bone-100 rounded-sm flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div class="space-y-1">
+        <h3 class="font-serif text-xl font-medium text-bone-50">Want to discuss opportunities?</h3>
+        <p class="text-xs text-graphite-400">Available for strategic brand leadership roles, advisory, and executive discussions.</p>
+      </div>
+      <a
+        href="/connect"
+        class="px-5 py-2.5 bg-burnt-600 hover:bg-burnt-500 text-bone-50 text-xs font-mono uppercase tracking-wider rounded-sm transition-colors whitespace-nowrap"
+      >
+        Reach Out Directly &rarr;
+      </a>
+    </div>
+  </div>
+</Layout>

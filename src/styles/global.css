@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: #F5F4EE;
+    color: #161817;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  ::selection {
+    background-color: #BF592F;
+    color: #FAF9F6;
+  }
+}
+
+/* Custom subtle noise background */
+.bg-grain {
+  background-image: radial-gradient(rgba(22, 24, 23, 0.04) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Horizontal scrollbar hide */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

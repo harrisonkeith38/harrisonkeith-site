@@ -1,0 +1,250 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ProjectTicker from '../components/ProjectTicker.astro';
+import { projects } from '../data/projects';
+import { artifacts } from '../data/interests';
+
+const featuredProjects = projects.slice(0, 2);
+const featuredArtifacts = artifacts.filter(a => a.featured).slice(0, 4);
+---
+
+<Layout title="Harrison Keith — Brand Strategy, Operations & Leadership">
+  <!-- Hero Section -->
+  <section class="max-w-6xl mx-auto px-6 pt-16 pb-12">
+    <div class="max-w-4xl space-y-6">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-bone-200 border border-bone-300 text-carbon-800 text-[11px] font-mono uppercase tracking-widest">
+        <span class="w-2 h-2 rounded-full bg-burnt-600"></span>
+        Personal Brand & Strategic Portfolio
+      </div>
+
+      <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight text-carbon-900 leading-[1.12]">
+        Unbound in curiosity.<br />
+        <span class="italic text-burnt-600">Disciplined</span> in execution.
+      </h1>
+
+      <p class="text-lg md:text-xl text-graphite-700 leading-relaxed max-w-2xl font-normal">
+        I operate at the intersection of military operational leadership, McCombs MBA business strategy, and brand marketing. My experience establishes credibility; my perspective establishes differentiation.
+      </p>
+
+      <div class="pt-4 flex flex-wrap items-center gap-4">
+        <a
+          href="/about"
+          class="px-6 py-3 bg-carbon-900 hover:bg-burnt-600 text-bone-50 text-xs font-mono uppercase tracking-wider rounded-sm transition-all duration-150 inline-flex items-center gap-2 group"
+        >
+          <span>About Me & Philosophy</span>
+          <span class="group-hover:translate-x-1 transition-transform">&rarr;</span>
+        </a>
+        <a
+          href="/timeline"
+          class="px-6 py-3 border border-bone-400 hover:border-carbon-900 text-carbon-900 text-xs font-mono uppercase tracking-wider rounded-sm transition-all duration-150"
+        >
+          View Career Timeline
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scrolling Project Ticker -->
+  <section class="my-6">
+    <ProjectTicker />
+  </section>
+
+  <!-- About Me Snapshot Section -->
+  <section class="max-w-6xl mx-auto px-6 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-start border-t border-bone-300 pt-12">
+      <!-- Col 1: Editorial Introduction -->
+      <div class="md:col-span-5 space-y-4">
+        <span class="text-xs font-mono uppercase tracking-wider text-burnt-600 block font-semibold">
+          01 // Executive Profile
+        </span>
+        <h2 class="font-serif text-3xl font-medium tracking-tight text-carbon-900 leading-snug">
+          High agency, intentional leadership, and a distinct perspective.
+        </h2>
+        <p class="text-sm text-graphite-600 leading-relaxed">
+          My background does not fit into a single corporate silo. Leading teams as an Army officer instilled unshakeable operational composure, decentralized execution, and mission clarity. 
+        </p>
+        <p class="text-sm text-graphite-600 leading-relaxed">
+          Through the University of Texas McCombs MBA program and advisory work with heritage and outdoor brands, I translated that operational engine into consumer strategy, brand architecture, and creative judgment.
+        </p>
+        <div class="pt-2">
+          <a href="/about" class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-carbon-900 hover:text-burnt-600 font-semibold group">
+            <span>Read full narrative</span>
+            <span class="group-hover:translate-x-1 transition-transform">&rarr;</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Col 2: The Three Pillars Cards -->
+      <div class="md:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div class="p-6 bg-bone-50 border border-bone-300 rounded-sm space-y-3 hover:border-burnt-600/50 transition-colors">
+          <span class="text-xs font-mono text-graphite-500 uppercase tracking-wider">Pillar 01</span>
+          <h3 class="font-serif text-xl font-medium text-carbon-900">Operational Rigor</h3>
+          <p class="text-xs text-graphite-600 leading-relaxed">
+            Mission command, multi-million dollar resource stewardship, and decision velocity under high uncertainty.
+          </p>
+        </div>
+
+        <div class="p-6 bg-bone-50 border border-bone-300 rounded-sm space-y-3 hover:border-burnt-600/50 transition-colors">
+          <span class="text-xs font-mono text-graphite-500 uppercase tracking-wider">Pillar 02</span>
+          <h3 class="font-serif text-xl font-medium text-carbon-900">Strategic Acumen</h3>
+          <p class="text-xs text-graphite-600 leading-relaxed">
+            McCombs MBA training in brand management, quantitative market analysis, and occasion-based consumer behavior.
+          </p>
+        </div>
+
+        <div class="p-6 bg-bone-50 border border-bone-300 rounded-sm space-y-3 hover:border-burnt-600/50 transition-colors">
+          <span class="text-xs font-mono text-graphite-500 uppercase tracking-wider">Pillar 03</span>
+          <h3 class="font-serif text-xl font-medium text-carbon-900">Taste as Intelligence</h3>
+          <p class="text-xs text-graphite-600 leading-relaxed">
+            Personal discernment is not decoration. It dictates how opportunities are spotted, narratives are crafted, and culture is read.
+          </p>
+        </div>
+
+        <div class="p-6 bg-bone-50 border border-bone-300 rounded-sm space-y-3 hover:border-burnt-600/50 transition-colors">
+          <span class="text-xs font-mono text-graphite-500 uppercase tracking-wider">Pillar 04</span>
+          <h3 class="font-serif text-xl font-medium text-carbon-900">Endurance Mindset</h3>
+          <p class="text-xs text-graphite-600 leading-relaxed">
+            Formed through endurance athletics and backcountry exploration. The stamina to sustain focus through long cycles of execution.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Projects Preview -->
+  <section class="max-w-6xl mx-auto px-6 py-16 border-t border-bone-300">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
+      <div>
+        <span class="text-xs font-mono uppercase tracking-wider text-burnt-600 block font-semibold mb-2">
+          02 // Selected Work
+        </span>
+        <h2 class="font-serif text-3xl font-medium tracking-tight text-carbon-900">
+          Strategic Projects & Case Studies
+        </h2>
+      </div>
+      <a
+        href="/projects"
+        class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-carbon-900 hover:text-burnt-600 font-semibold group"
+      >
+        <span>View all projects</span>
+        <span class="group-hover:translate-x-1 transition-transform">&rarr;</span>
+      </a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {featuredProjects.map((p) => (
+        <article class="bg-bone-50 border border-bone-300 rounded-sm p-8 flex flex-col justify-between hover:border-carbon-800 transition-all group">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between text-xs font-mono text-graphite-500">
+              <span>{p.clientCategory}</span>
+              <span>{p.period}</span>
+            </div>
+            <h3 class="font-serif text-2xl font-medium text-carbon-900 group-hover:text-burnt-600 transition-colors">
+              {p.title}
+            </h3>
+            <p class="text-sm text-graphite-600 leading-relaxed">
+              {p.tagline}
+            </p>
+            <div class="flex flex-wrap gap-2 pt-2">
+              {p.tags.map((tag) => (
+                <span class="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 bg-bone-200 border border-bone-300 rounded text-carbon-800">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div class="pt-8 border-t border-bone-200 mt-6 flex items-center justify-between">
+            <span class="text-xs font-mono text-graphite-500">{p.role}</span>
+            <a href="/projects" class="text-xs font-mono uppercase tracking-wider text-burnt-600 font-semibold group-hover:underline">
+              Case Study &rarr;
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- The Studio Wall / Interests Teaser -->
+  <section class="max-w-6xl mx-auto px-6 py-16 border-t border-bone-300">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
+      <div>
+        <span class="text-xs font-mono uppercase tracking-wider text-burnt-600 block font-semibold mb-2">
+          03 // The Studio Wall
+        </span>
+        <h2 class="font-serif text-3xl font-medium tracking-tight text-carbon-900">
+          Curated Archive of Taste & Influences
+        </h2>
+        <p class="text-sm text-graphite-600 max-w-xl mt-2 leading-relaxed">
+          Inspired by collector backdrops and design archives. An intentional collection of products, typography, footwear, architecture, and symbols that shape how I see the world.
+        </p>
+      </div>
+      <a
+        href="/interests"
+        class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-carbon-900 hover:text-burnt-600 font-semibold group"
+      >
+        <span>Explore Studio Wall</span>
+        <span class="group-hover:translate-x-1 transition-transform">&rarr;</span>
+      </a>
+    </div>
+
+    <!-- Masonry-style Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {featuredArtifacts.map((item) => (
+        <a
+          href="/interests"
+          class="bg-bone-50 border border-bone-300 rounded-sm overflow-hidden group hover:border-burnt-600 transition-all flex flex-col"
+        >
+          <div class="aspect-[4/3] w-full overflow-hidden bg-bone-200 relative">
+            <img
+              src={item.image}
+              alt={item.title}
+              class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-300"
+              loading="lazy"
+            />
+            <div class="absolute top-2 right-2 bg-carbon-900/80 backdrop-blur-sm text-bone-100 text-[10px] font-mono px-2 py-0.5 rounded">
+              {item.categoryLabel}
+            </div>
+          </div>
+          <div class="p-4 flex flex-col justify-between flex-grow space-y-2">
+            <div>
+              <h4 class="font-serif text-lg font-medium text-carbon-900 group-hover:text-burnt-600 transition-colors leading-snug">
+                {item.title}
+              </h4>
+              <p class="text-[11px] font-mono text-graphite-500">{item.source}</p>
+            </div>
+            <p class="text-xs text-graphite-600 line-clamp-2 leading-relaxed">
+              {item.note}
+            </p>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- Timeline Fast-Track CTA Banner -->
+  <section class="max-w-6xl mx-auto px-6 py-12">
+    <div class="bg-carbon-900 text-bone-100 rounded-sm p-8 md:p-12 border border-carbon-800 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+      <div class="space-y-3 max-w-xl">
+        <span class="text-xs font-mono uppercase tracking-wider text-burnt-500 font-semibold">
+          Recruiter & Leadership Quick-Scan
+        </span>
+        <h3 class="font-serif text-2xl md:text-3xl font-medium text-bone-50">
+          U.S. Army Officer &rarr; McCombs MBA &rarr; Brand Strategy
+        </h3>
+        <p class="text-sm text-graphite-400 leading-relaxed">
+          Explore the complete chronological timeline connecting military leadership, graduate business education, and consumer brand strategy.
+        </p>
+      </div>
+
+      <div class="flex items-center gap-4">
+        <a
+          href="/timeline"
+          class="px-6 py-3.5 bg-burnt-600 hover:bg-burnt-500 text-bone-50 font-mono text-xs uppercase tracking-wider rounded-sm transition-colors whitespace-nowrap"
+        >
+          View Full Timeline &rarr;
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

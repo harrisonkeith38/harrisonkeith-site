@@ -1,0 +1,194 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { projects } from '../data/projects';
+---
+
+<Layout
+  title="My Projects — Harrison Keith"
+  description="Strategic case studies, brand architecture, consumer research, and operational execution."
+>
+  <div class="max-w-5xl mx-auto px-6 py-16">
+    <!-- Header -->
+    <div class="space-y-4 pb-12 border-b border-bone-300">
+      <div class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-burnt-600 font-semibold">
+        <span>03 // Selected Strategic Work</span>
+      </div>
+      <h1 class="font-serif text-4xl sm:text-5xl font-medium tracking-tight text-carbon-900 leading-tight">
+        Strategic Case Studies & Impact
+      </h1>
+      <p class="text-base text-graphite-600 max-w-2xl font-normal leading-relaxed">
+        To protect proprietary client data and non-disclosure commitments, these case studies highlight strategic framing, methodology, decision frameworks, and impact without disclosing non-public business information.
+      </p>
+
+      <!-- Category Filter Buttons -->
+      <div class="pt-6 flex flex-wrap gap-2" id="filter-container">
+        <button
+          data-filter="all"
+          class="filter-btn active px-3.5 py-1.5 rounded-sm text-xs font-mono uppercase tracking-wider bg-carbon-900 text-bone-50 transition-all"
+        >
+          All Work ({projects.length})
+        </button>
+        <button
+          data-filter="Brand Strategy"
+          class="filter-btn px-3.5 py-1.5 rounded-sm text-xs font-mono uppercase tracking-wider bg-bone-200 text-carbon-800 hover:bg-bone-300 transition-all"
+        >
+          Brand Strategy
+        </button>
+        <button
+          data-filter="Consumer Insights"
+          class="filter-btn px-3.5 py-1.5 rounded-sm text-xs font-mono uppercase tracking-wider bg-bone-200 text-carbon-800 hover:bg-bone-300 transition-all"
+        >
+          Consumer Insights
+        </button>
+        <button
+          data-filter="Operational Leadership"
+          class="filter-btn px-3.5 py-1.5 rounded-sm text-xs font-mono uppercase tracking-wider bg-bone-200 text-carbon-800 hover:bg-bone-300 transition-all"
+        >
+          Operational Leadership
+        </button>
+      </div>
+    </div>
+
+    <!-- Case Studies List -->
+    <div class="py-12 space-y-16" id="projects-grid">
+      {projects.map((p, idx) => (
+        <article
+          class="project-card bg-bone-50 border border-bone-300 rounded-sm p-8 md:p-10 space-y-8 hover:border-carbon-800 transition-all"
+          data-tags={JSON.stringify(p.tags)}
+        >
+          <!-- Top Row -->
+          <div class="flex flex-col md:flex-row md:items-baseline justify-between gap-4 border-b border-bone-200 pb-6">
+            <div class="space-y-1">
+              <span class="text-xs font-mono uppercase tracking-wider text-burnt-600 font-semibold">
+                {p.clientCategory} &bull; Case 0{idx + 1}
+              </span>
+              <h2 class="font-serif text-3xl font-medium text-carbon-900">
+                {p.title}
+              </h2>
+            </div>
+            <div class="text-xs font-mono text-graphite-500 md:text-right">
+              <div>{p.period}</div>
+              <div class="text-carbon-800 font-medium">{p.role}</div>
+            </div>
+          </div>
+
+          <!-- Tagline -->
+          <p class="font-serif italic text-lg md:text-xl text-carbon-800 leading-snug">
+            "{p.tagline}"
+          </p>
+
+          <!-- Metrics Row -->
+          {p.metrics && (
+            <div class="grid grid-cols-3 gap-4 p-4 bg-bone-200/60 rounded border border-bone-300">
+              {p.metrics.map((m) => (
+                <div class="text-center">
+                  <span class="text-[10px] font-mono uppercase tracking-wider text-graphite-500 block">
+                    {m.label}
+                  </span>
+                  <span class="font-mono text-sm font-semibold text-carbon-900 mt-0.5 block">
+                    {m.value}
+                  </span>
+                </div>
+              ))}
+            </div>
+          )}
+
+          <!-- Deep-Dive Breakdown Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm">
+            <!-- Left Column: Problem & Insight -->
+            <div class="space-y-6">
+              <div class="space-y-2">
+                <h3 class="text-xs font-mono uppercase tracking-wider text-graphite-500 flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-burnt-600"></span>
+                  The Strategic Challenge
+                </h3>
+                <p class="text-graphite-700 leading-relaxed font-sans">
+                  {p.challenge}
+                </p>
+              </div>
+
+              <div class="space-y-2">
+                <h3 class="text-xs font-mono uppercase tracking-wider text-graphite-500 flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-burnt-600"></span>
+                  The Core Insight
+                </h3>
+                <p class="text-graphite-700 leading-relaxed font-sans">
+                  {p.insight}
+                </p>
+              </div>
+            </div>
+
+            <!-- Right Column: Strategy & Impact -->
+            <div class="space-y-6">
+              <div class="space-y-2">
+                <h3 class="text-xs font-mono uppercase tracking-wider text-graphite-500 flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-carbon-900"></span>
+                  Strategic Approach & Execution
+                </h3>
+                <p class="text-graphite-700 leading-relaxed font-sans">
+                  {p.strategy}
+                </p>
+              </div>
+
+              <div class="space-y-2">
+                <h3 class="text-xs font-mono uppercase tracking-wider text-graphite-500 flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                  Impact & Business Value
+                </h3>
+                <p class="text-graphite-700 leading-relaxed font-sans">
+                  {p.impact}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom: Reflection -->
+          <div class="pt-6 border-t border-bone-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs font-mono">
+            <div class="text-graphite-600">
+              <span class="font-semibold text-carbon-900">Key Takeaway:</span> {p.reflection}
+            </div>
+            <div class="flex flex-wrap gap-1.5">
+              {p.tags.map((tag) => (
+                <span class="px-2 py-0.5 bg-bone-200 border border-bone-300 text-[10px] text-carbon-800 rounded">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</Layout>
+
+<script>
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const projectCards = document.querySelectorAll('.project-card');
+
+  filterBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach((b) => {
+        b.classList.remove('active', 'bg-carbon-900', 'text-bone-50');
+        b.classList.add('bg-bone-200', 'text-carbon-800');
+      });
+
+      btn.classList.remove('bg-bone-200', 'text-carbon-800');
+      btn.classList.add('active', 'bg-carbon-900', 'text-bone-50');
+
+      const filter = btn.getAttribute('data-filter');
+
+      projectCards.forEach((card) => {
+        if (filter === 'all') {
+          (card as HTMLElement).style.display = 'block';
+        } else {
+          const tags = JSON.parse(card.getAttribute('data-tags') || '[]');
+          if (tags.includes(filter)) {
+            (card as HTMLElement).style.display = 'block';
+          } else {
+            (card as HTMLElement).style.display = 'none';
+          }
+        }
+      });
+    });
+  });
+</script>
