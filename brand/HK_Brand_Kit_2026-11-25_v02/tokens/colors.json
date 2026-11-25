@@ -1,0 +1,49 @@
+{
+  "brand": "Harrison Keith",
+  "version": "2026-11-25_v02",
+  "creativeDirection": "Technical Performance meets Modern Minimalism",
+  "neutrals": {
+    "carbon": {
+      "hex": "#141414",
+      "rgb": "rgb(20, 20, 20)",
+      "usage": "Primary typography, dark backgrounds, high-contrast marks"
+    },
+    "concrete": {
+      "hex": "#A6A6A6",
+      "rgb": "rgb(166, 166, 166)",
+      "usage": "Secondary typography, structural dividers, metadata, borders"
+    },
+    "chalk": {
+      "hex": "#F4F4F4",
+      "rgb": "rgb(244, 244, 244)",
+      "usage": "Light backgrounds, reversed typography, negative space"
+    }
+  },
+  "signatureStripes": {
+    "order": [
+      {
+        "name": "Signal Yellow",
+        "hex": "#E4BD25",
+        "rgb": "rgb(228, 189, 37)",
+        "position": 1
+      },
+      {
+        "name": "Racing Red",
+        "hex": "#B74438",
+        "rgb": "rgb(183, 68, 56)",
+        "position": 2
+      },
+      {
+        "name": "Alpine Blue",
+        "hex": "#438CA9",
+        "rgb": "rgb(67, 140, 169)",
+        "position": 3
+      }
+    ],
+    "geometry": {
+      "rakeAngleDegrees": 12,
+      "aspectRatio": "3:1",
+      "gapRatio": 0.25
+    }
+  }
+}

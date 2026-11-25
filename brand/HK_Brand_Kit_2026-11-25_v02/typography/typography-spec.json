@@ -1,0 +1,27 @@
+{
+  "brand": "Harrison Keith",
+  "version": "2026-11-25_v02",
+  "families": {
+    "primaryDisplay": {
+      "family": "GT America Extended",
+      "fallbacks": ["Helvetica Neue", "Arial", "sans-serif"],
+      "weights": [700, 800, 900],
+      "application": "Major display headlines, wordmark exploration, page titles",
+      "characteristics": "Extended letterforms, strong horizontal presence, geometric"
+    },
+    "secondaryFunctional": {
+      "family": "FF DIN",
+      "fallbacks": ["DIN Alternate", "Roboto", "Inter", "sans-serif"],
+      "weights": [400, 500, 700],
+      "application": "Body copy, navigation, interface elements, descriptions",
+      "characteristics": "Legible, engineered, structural"
+    },
+    "accentTechnical": {
+      "family": "Eurostile Next",
+      "fallbacks": ["Eurostile", "Microgramma", "monospace", "sans-serif"],
+      "weights": [500, 700],
+      "application": "Small labels, numerical information, technical annotations",
+      "characteristics": "Squarish geometric, technical precision, wide tracking"
+    }
+  }
+}
