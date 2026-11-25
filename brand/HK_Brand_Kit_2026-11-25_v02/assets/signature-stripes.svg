@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 16" fill="none">
+  <!-- Signature Color Stripes: 12-degree forward rake -->
+  <!-- Order: 1. Signal Yellow (#E4BD25) | 2. Racing Red (#B74438) | 3. Alpine Blue (#438CA9) -->
+  <g transform="skewX(-12) translate(4, 0)">
+    <rect x="0" y="0" width="6" height="16" fill="#E4BD25" />
+    <rect x="9" y="0" width="6" height="16" fill="#B74438" />
+    <rect x="18" y="0" width="6" height="16" fill="#438CA9" />
+  </g>
+</svg>

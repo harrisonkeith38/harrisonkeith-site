@@ -1,0 +1,65 @@
+/**
+ * HK Brand Design Tokens (v02)
+ * Master design system tokens for Harrison Keith identity.
+ * Authoritative source for all visual and frontend implementations.
+ */
+
+:root {
+  /* ==========================================================================
+     Color Palette (Strict 6-Color System)
+     ========================================================================== */
+  
+  /* Primary Neutrals */
+  --hk-color-carbon: #141414;
+  --hk-color-concrete: #A6A6A6;
+  --hk-color-chalk: #F4F4F4;
+
+  /* Pure Values */
+  --hk-color-pure-black: #000000;
+  --hk-color-pure-white: #FFFFFF;
+
+  /* Signature Accents (Strict Order) */
+  --hk-color-stripe-1: #E4BD25; /* Signal Yellow */
+  --hk-color-stripe-2: #B74438; /* Racing Red */
+  --hk-color-stripe-3: #438CA9; /* Alpine Blue */
+  
+  --hk-color-signal-yellow: #E4BD25;
+  --hk-color-racing-red: #B74438;
+  --hk-color-alpine-blue: #438CA9;
+
+  /* Semantic Aliases */
+  --hk-bg-canvas: var(--hk-color-chalk);
+  --hk-text-primary: var(--hk-color-carbon);
+  --hk-text-secondary: var(--hk-color-concrete);
+  --hk-border-hairline: var(--hk-color-concrete);
+  --hk-accent-focus: var(--hk-color-racing-red);
+
+  /* ==========================================================================
+     Typography Tokens
+     ========================================================================== */
+  
+  /* Primary Display Typeface */
+  --hk-font-display: "GT America Extended", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  
+  /* Secondary Functional Typeface */
+  --hk-font-functional: "FF DIN", "DIN Alternate", -apple-system, BlinkMacSystemFont, Roboto, Inter, sans-serif;
+  
+  /* Accent Technical Typeface */
+  --hk-font-technical: "Eurostile Next", "Eurostile", "Microgramma", "JetBrains Mono", monospace, sans-serif;
+
+  /* Tracking (Letter Spacing) */
+  --hk-tracking-tight: -0.02em;
+  --hk-tracking-normal: 0em;
+  --hk-tracking-extended: 0.12em;
+  --hk-tracking-technical: 0.18em;
+  --hk-tracking-ultra-wide: 0.28em;
+
+  /* ==========================================================================
+     Geometry & Structure
+     ========================================================================== */
+  
+  --hk-monogram-rake: -12deg;
+  --hk-stripe-rake: -12deg;
+  --hk-stripe-aspect: 3 / 1;
+  --hk-border-width-hairline: 1px;
+}

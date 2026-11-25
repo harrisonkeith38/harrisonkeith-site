@@ -1,3 +1,5 @@
+@import "../../brand/HK_Brand_Kit_2026-11-25_v02/tokens/css/hk-tokens.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -5,15 +7,16 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    background-color: #F4F4F4;
-    color: #141414;
+    background-color: var(--hk-bg-canvas);
+    color: var(--hk-text-primary);
+    font-family: var(--hk-font-functional);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   ::selection {
-    background-color: #141414;
-    color: #F4F4F4;
+    background-color: var(--hk-color-carbon);
+    color: var(--hk-color-chalk);
   }
 }
 
@@ -25,9 +28,16 @@
   background-size: 1100px auto;
 }
 
+/* Authentic high-res photo background texture support */
+.bg-hk-authentic {
+  background-image: url('/brand/hk-background.png');
+  background-size: cover;
+  background-position: center;
+}
+
 /* Hairline border utility */
 .border-concrete {
-  border-color: #A6A6A6;
+  border-color: var(--hk-color-concrete);
 }
 
 /* Hide scrollbars */
