@@ -2,7 +2,6 @@
 const pathname = new URL(Astro.request.url).pathname;
 
 const navItems = [
-  { href: '/about', label: 'About' },
   { href: '/timeline', label: 'Timeline' },
   { href: '/projects', label: 'Projects' },
   { href: '/interests', label: 'Interests' },
@@ -10,60 +9,98 @@ const navItems = [
 ];
 ---
 
-<header class="sticky top-0 z-50 bg-bone-100/95 backdrop-blur-md border-b border-bone-300">
-  <div class="max-w-7xl mx-auto px-6 sm:px-8 h-20 flex items-center justify-between">
-    <!-- Brand Name / Logo -->
-    <a href="/" class="group flex items-baseline gap-3">
-      <span class="font-serif text-2xl sm:text-3xl font-medium tracking-tight text-carbon-900 group-hover:text-burnt-600 transition-colors">
-        Harrison Keith
-      </span>
-      <span class="hidden sm:inline-block text-[10px] font-mono uppercase tracking-widest text-graphite-500">
-        Austin, TX &bull; 30.2672° N, 97.7431° W
-      </span>
+<header class="sticky top-0 z-50 bg-chalk/95 backdrop-blur-md border-b border-concrete/30">
+  <div class="max-w-6xl mx-auto px-6 h-18 py-3.5 flex items-center justify-between">
+    <!-- Brand: Horizontal Logo Lockup (HK Monogram + HARRISON KEITH Wordmark + 3 Stripes) -->
+    <a href="/" class="group flex items-center gap-3.5 select-none">
+      <!-- 12-degree Slanted HK Monogram -->
+      <div class="w-7 h-6 flex-shrink-0">
+        <svg viewBox="0 0 130 100" fill="none" class="w-full h-full">
+          <g transform="skewX(-12) translate(22, 0)">
+            <rect x="0" y="0" width="18" height="100" fill="#141414" />
+            <rect x="18" y="42" width="24" height="16" fill="#141414" />
+            <rect x="42" y="0" width="18" height="100" fill="#141414" />
+            <polygon points="56,42 78,0 98,0 68,54" fill="#141414" />
+            <polygon points="65,48 98,100 78,100 52,56" fill="#141414" />
+          </g>
+        </svg>
+      </div>
+
+      <!-- Hairline Divider -->
+      <div class="h-4 w-[1px] bg-concrete/50"></div>
+
+      <!-- Wordmark & Stripes -->
+      <div class="flex flex-col">
+        <span class="font-display font-extrabold text-xs sm:text-sm tracking-extended text-carbon uppercase leading-none">
+          HARRISON KEITH
+        </span>
+        <!-- 3 Signature Stripes: Yellow, Red, Blue -->
+        <div class="flex items-center gap-1 pt-1">
+          <span class="w-2.5 h-[3px] bg-signalYellow transform -skew-x-12 inline-block"></span>
+          <span class="w-2.5 h-[3px] bg-racingRed transform -skew-x-12 inline-block"></span>
+          <span class="w-2.5 h-[3px] bg-alpineBlue transform -skew-x-12 inline-block"></span>
+        </div>
+      </div>
     </a>
 
     <!-- Desktop Navigation -->
-    <nav class="hidden md:flex items-center space-x-7">
+    <nav class="hidden md:flex items-center space-x-8 text-xs font-technical uppercase tracking-extended">
       {navItems.map((item) => {
         const isActive = pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href));
         return (
           <a
             href={item.href}
-            class={`text-[11px] uppercase tracking-widest font-mono transition-colors flex items-center gap-1.5 ${
+            class={`transition-colors py-1 ${
               isActive
-                ? 'text-burnt-600 font-semibold'
-                : 'text-carbon-800 hover:text-burnt-600'
+                ? 'text-carbon font-bold border-b border-carbon'
+                : 'text-concrete hover:text-carbon'
             }`}
           >
-            {isActive && <span class="w-1.5 h-1.5 rounded-full bg-burnt-600"></span>}
-            <span>{item.label}</span>
+            {item.label}
           </a>
         );
       })}
+      
+      <!-- Direct Download Resume PDF -->
+      <a
+        href="/harrison-keith-resume.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-carbon hover:text-racingRed font-bold border-b border-carbon/40 pb-0.5 transition-colors"
+      >
+        Résumé (PDF) &darr;
+      </a>
     </nav>
 
     <!-- Mobile Menu Button -->
     <button
       id="mobile-menu-btn"
-      class="md:hidden p-2 text-carbon-900 hover:text-burnt-600 focus:outline-none"
-      aria-label="Toggle navigation"
+      class="md:hidden p-2 text-carbon focus:outline-none"
+      aria-label="Toggle navigation menu"
     >
       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8h18M3 16h18" />
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8h18M3 16h18" />
       </svg>
     </button>
   </div>
 
   <!-- Mobile Dropdown -->
-  <div id="mobile-menu" class="hidden md:hidden border-b border-bone-300 bg-bone-100 px-6 py-6 space-y-4">
+  <div id="mobile-menu" class="hidden md:hidden border-b border-concrete/30 bg-chalk px-6 py-4 space-y-3 font-technical text-xs uppercase tracking-extended">
     {navItems.map((item) => (
       <a
         href={item.href}
-        class="block font-mono text-xs uppercase tracking-widest text-carbon-900 hover:text-burnt-600 py-1.5 border-b border-bone-200"
+        class="block text-carbon hover:text-racingRed py-1"
       >
         {item.label}
       </a>
     ))}
+    <a
+      href="/harrison-keith-resume.pdf"
+      target="_blank"
+      class="block text-carbon font-bold py-1 pt-2 border-t border-concrete/30"
+    >
+      Download Résumé (PDF) &darr;
+    </a>
   </div>
 </header>
 

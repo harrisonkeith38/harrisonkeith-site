@@ -1,101 +1,124 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { timeline } from '../data/timeline';
+import { detailedTimeline, credentials } from '../data/timeline';
 ---
 
 <Layout
-  title="Career Timeline — Harrison Keith"
-  description="Chronological career journey and milestones across military leadership, McCombs MBA, and brand marketing strategy."
+  title="Career Timeline — HARRISON KEITH"
+  description="Chronological career journey across military leadership, McCombs MBA, and brand marketing strategy."
 >
-  <div class="max-w-5xl mx-auto px-6 sm:px-8 py-20">
+  <div class="max-w-5xl mx-auto px-6 py-16 sm:py-20">
     <!-- Header -->
-    <header class="space-y-6 pb-16 border-b border-bone-300">
-      <div class="flex items-center gap-2 text-[10px] font-mono uppercase tracking-widest text-graphite-500">
-        <span class="w-1.5 h-1.5 rounded-full bg-burnt-600"></span>
-        <span>02 // Professional Record & Arc</span>
+    <header class="space-y-4 pb-12 border-b border-concrete/30">
+      <div class="flex items-center gap-2">
+        <div class="flex items-center gap-1">
+          <span class="w-2.5 h-[3px] bg-signalYellow transform -skew-x-12 inline-block"></span>
+          <span class="w-2.5 h-[3px] bg-racingRed transform -skew-x-12 inline-block"></span>
+          <span class="w-2.5 h-[3px] bg-alpineBlue transform -skew-x-12 inline-block"></span>
+        </div>
+        <span class="text-xs font-technical uppercase tracking-extended text-concrete">
+          CAREER TIMELINE & SCOPE
+        </span>
       </div>
-      <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl font-medium tracking-tight text-carbon-900 leading-[1.02]">
-        Career Timeline & Leadership Arc
+
+      <h1 class="font-display font-extrabold text-3xl sm:text-5xl text-carbon uppercase tracking-tight">
+        Professional Experience & Pedigree
       </h1>
-      <p class="text-lg sm:text-xl text-graphite-600 font-light leading-relaxed max-w-2xl font-sans">
-        A progressive arc connecting operational command, graduate business education, and brand marketing strategy.
-      </p>
-      <div class="pt-2 text-xs font-mono">
-        <a href="/connect" class="text-burnt-600 hover:text-burnt-700 font-semibold uppercase tracking-widest inline-flex items-center gap-1.5 group">
-          <span>Request Official Résumé PDF</span>
-          <span class="group-hover:translate-x-1 transition-transform">&rarr;</span>
+
+      <div class="pt-2 flex items-center gap-4 text-xs font-technical uppercase tracking-extended">
+        <a
+          href="/harrison-keith-resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="px-4 py-2 border border-carbon text-carbon hover:bg-carbon hover:text-chalk transition-colors font-bold inline-flex items-center gap-2"
+        >
+          <span>Download Official Résumé (PDF)</span>
+          <span>&darr;</span>
         </a>
       </div>
     </header>
 
-    <!-- Swiss Chronological Ledger (Container-Free) -->
-    <div class="py-12 divide-y divide-bone-300 border-b border-bone-300">
-      {timeline.map((item, idx) => (
-        <article class="py-14 grid grid-cols-1 md:grid-cols-12 gap-8 items-start group">
-          <!-- Col 1: Date & Location -->
+    <!-- Detailed Timeline List -->
+    <div class="py-12 divide-y divide-concrete/30 border-b border-concrete/30">
+      {detailedTimeline.map((item) => (
+        <article class="py-12 grid grid-cols-1 md:grid-cols-12 gap-6 items-start group">
+          <!-- Dates & Location -->
           <div class="md:col-span-3 space-y-1">
-            <span class="text-xs font-mono text-burnt-600 font-bold block tracking-wider">
+            <span class="text-xs font-technical font-bold text-carbon block tracking-wider">
               {item.period}
             </span>
-            <span class="text-[11px] font-mono text-graphite-500 uppercase tracking-widest block">
+            <span class="text-[11px] font-technical text-concrete uppercase tracking-widest block">
               {item.location}
-            </span>
-            <span class="text-[10px] font-mono text-graphite-400 block pt-1">
-              EPOCH 0{idx + 1}
             </span>
           </div>
 
-          <!-- Col 2: Role & Narrative Impact -->
-          <div class="md:col-span-9 space-y-6">
+          <!-- Role, Organization & Specific Bullets -->
+          <div class="md:col-span-9 space-y-4">
             <div>
-              <span class="text-[11px] font-mono uppercase tracking-widest text-graphite-500 block mb-1">
+              <span class="text-[11px] font-technical uppercase tracking-extended text-concrete block mb-1">
                 {item.organization}
               </span>
-              <h2 class="font-serif text-3xl font-medium text-carbon-900 group-hover:text-burnt-600 transition-colors">
+              <h2 class="font-display font-bold text-2xl text-carbon uppercase tracking-tight group-hover:text-racingRed transition-colors">
                 {item.role}
               </h2>
             </div>
 
-            <!-- Summary -->
-            <p class="text-base text-graphite-700 font-light leading-relaxed font-sans">
+            <p class="text-sm font-sans text-carbon/80 leading-relaxed">
               {item.summary}
             </p>
 
-            <!-- Responsibilities & Scope -->
-            <div class="space-y-3 pt-2">
-              <span class="text-[10px] font-mono uppercase tracking-widest text-graphite-500 block">
-                Scope & Key Execution
-              </span>
-              <ul class="space-y-2 text-xs sm:text-sm text-graphite-600 font-sans font-light">
-                {item.responsibilities.map((resp) => (
-                  <li class="flex items-start gap-2.5">
-                    <span class="text-burnt-600 font-mono mt-0.5">&bull;</span>
-                    <span class="leading-relaxed">{resp}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <!-- Capabilities Unlocked -->
-            <div class="pt-4 flex flex-wrap gap-2">
-              {item.capabilitiesUnlocked.map((cap) => (
-                <span class="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 bg-bone-200/80 text-carbon-800 rounded-sm">
-                  {cap}
-                </span>
+            <!-- Specific Impact Bullets -->
+            <ul class="space-y-2 pt-2 text-xs sm:text-sm font-sans text-carbon/90">
+              {item.bullets.map((bullet) => (
+                <li class="flex items-start gap-2.5">
+                  <span class="text-racingRed font-bold mt-0.5">&bull;</span>
+                  <span class="leading-relaxed">{bullet}</span>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         </article>
       ))}
     </div>
 
-    <!-- Next Page Anchor -->
-    <div class="pt-12 flex flex-col sm:flex-row items-baseline justify-between gap-6 text-xs font-mono">
-      <div class="text-graphite-500 uppercase tracking-widest">
-        Next: <a href="/projects" class="text-burnt-600 hover:text-burnt-700 font-semibold ml-1">Examine Selected Projects &rarr;</a>
+    <!-- Education & Credentials Section -->
+    <section class="py-16 space-y-8">
+      <div>
+        <span class="text-xs font-technical uppercase tracking-extended text-concrete block mb-1">
+          CREDENTIALS
+        </span>
+        <h2 class="font-display font-bold text-2xl text-carbon uppercase tracking-tight">
+          Education & Certifications
+        </h2>
+      </div>
+
+      <div class="divide-y divide-concrete/30 border-t border-concrete/30">
+        {credentials.map((cred) => (
+          <div class="py-6 grid grid-cols-1 md:grid-cols-12 gap-4 items-baseline text-xs font-technical">
+            <div class="md:col-span-3 text-concrete uppercase tracking-wider">
+              {cred.year}
+            </div>
+            <div class="md:col-span-6 font-display font-bold text-carbon text-sm uppercase tracking-wide">
+              {cred.institution}
+              <span class="block font-sans font-normal text-xs text-carbon/80 lowercase capitalize mt-0.5">
+                {cred.degreeOrCert}
+              </span>
+            </div>
+            <div class="md:col-span-3 text-concrete text-[11px] uppercase tracking-wider md:text-right">
+              {cred.details}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Bottom Actions -->
+    <div class="pt-8 border-t border-concrete/30 flex flex-col sm:flex-row items-baseline justify-between gap-4 text-xs font-technical uppercase tracking-extended">
+      <div>
+        Next: <a href="/projects" class="text-carbon hover:text-racingRed font-bold ml-1">Explore Projects &rarr;</a>
       </div>
       <div>
-        <a href="/connect" class="text-carbon-900 hover:text-burnt-600 transition-colors uppercase tracking-widest">Direct Inquiries &rarr;</a>
+        <a href="/harrison-keith-resume.pdf" target="_blank" class="text-carbon hover:text-racingRed font-bold">Download Résumé (PDF) &darr;</a>
       </div>
     </div>
   </div>

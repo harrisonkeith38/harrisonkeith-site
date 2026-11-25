@@ -5,28 +5,29 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    background-color: #F7F6F2;
-    color: #141514;
-    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    background-color: #F4F4F4;
+    color: #141414;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   ::selection {
-    background-color: #BA4E22;
-    color: #FCFBF9;
+    background-color: #141414;
+    color: #F4F4F4;
   }
 }
 
-/* Subtle editorial paper texture */
-.bg-grain {
-  background-image: radial-gradient(rgba(20, 21, 20, 0.04) 1px, transparent 0);
-  background-size: 20px 20px;
+/* Subtle architectural topography background overlay */
+.bg-topography {
+  background-image: url('/brand/topography-pattern.svg');
+  background-repeat: no-repeat;
+  background-position: top right;
+  background-size: 1100px auto;
 }
 
 /* Hairline border utility */
-.border-hairline {
-  border-color: #E2DED4;
+.border-concrete {
+  border-color: #A6A6A6;
 }
 
 /* Hide scrollbars */

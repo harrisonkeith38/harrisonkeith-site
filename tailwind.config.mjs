@@ -4,45 +4,31 @@ export default {
   theme: {
     extend: {
       colors: {
-        bone: {
-          50: '#FCFBF9',
-          100: '#F7F6F2',
-          200: '#EFECE4',
-          300: '#E2DED4',
-          400: '#C8C3B6',
-        },
-        carbon: {
-          950: '#0C0D0C',
-          900: '#141514',
-          850: '#1B1D1C',
-          800: '#262827',
-          700: '#3A3D3B',
-        },
-        burnt: {
-          500: '#D25A2B',
-          600: '#BA4E22',
-          700: '#9A3F19',
-        },
-        graphite: {
-          400: '#8E9490',
-          500: '#6E7470',
-          600: '#525754',
-          700: '#3B3E3C',
-        },
+        // Strict Master Palette
+        carbon: '#141414',
+        concrete: '#A6A6A6',
+        chalk: '#F4F4F4',
+        // Signature Accents
+        signalYellow: '#E4BD25',
+        racingRed: '#B74438',
+        alpineBlue: '#438CA9',
+        // Supporting pure values
+        pureBlack: '#000000',
+        pureWhite: '#FFFFFF',
       },
       fontFamily: {
-        serif: ['Newsreader', 'Georgia', 'Iowan Old Style', 'serif'],
-        sans: ['Plus Jakarta Sans', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
-        mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+        // Primary Display (GT America Extended style)
+        display: ['"GT America Extended"', '"Helvetica Neue"', 'Arial', 'sans-serif'],
+        // Secondary Functional (FF DIN style)
+        sans: ['"FF DIN"', '"DIN Alternate"', 'Roboto', 'Inter', 'sans-serif'],
+        // Technical Accent (Eurostile Next style)
+        technical: ['"Eurostile Next"', '"Eurostile"', '"Microgramma"', 'monospace', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
       },
-      animation: {
-        'marquee': 'marquee 30s linear infinite',
-      },
-      keyframes: {
-        marquee: {
-          '0%': { transform: 'translateX(0%)' },
-          '100%': { transform: 'translateX(-50%)' },
-        },
+      letterSpacing: {
+        'ultra-wide': '0.25em',
+        'technical': '0.18em',
+        'extended': '0.12em',
       },
     },
   },

@@ -1,146 +1,201 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { artifacts } from '../data/interests';
+import { artifacts, currentlyObsessed, enduranceProfile } from '../data/interests';
 ---
 
 <Layout
-  title="My Interests — The Studio Wall — Harrison Keith"
-  description="Curated gallery and studio backdrop of personal taste, design influences, footwear, typography, and endurance culture."
+  title="The Studio Wall & Interests — HARRISON KEITH"
+  description="Curated visual archive of footwear, industrial design, typography, endurance athletics, and culture."
 >
-  <div class="max-w-7xl mx-auto px-6 sm:px-8 py-20">
+  <div class="max-w-6xl mx-auto px-6 py-16 sm:py-20 space-y-24">
     <!-- Header -->
-    <header class="space-y-6 pb-16 border-b border-bone-300">
-      <div class="flex items-center gap-2 text-[10px] font-mono uppercase tracking-widest text-graphite-500">
-        <span class="w-1.5 h-1.5 rounded-full bg-burnt-600"></span>
-        <span>04 // The Studio Wall & Cultural Archive</span>
+    <header class="space-y-4 pb-12 border-b border-concrete/30">
+      <div class="flex items-center gap-2">
+        <div class="flex items-center gap-1">
+          <span class="w-2.5 h-[3px] bg-signalYellow transform -skew-x-12 inline-block"></span>
+          <span class="w-2.5 h-[3px] bg-racingRed transform -skew-x-12 inline-block"></span>
+          <span class="w-2.5 h-[3px] bg-alpineBlue transform -skew-x-12 inline-block"></span>
+        </div>
+        <span class="text-xs font-technical uppercase tracking-extended text-concrete">
+          CURATION // VISUAL CULTURE & TASTE
+        </span>
       </div>
-      <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl font-medium tracking-tight text-carbon-900 leading-[1.02]">
-        A Living Archive of Taste & Influence
+
+      <h1 class="font-display font-extrabold text-3xl sm:text-5xl text-carbon uppercase tracking-tight">
+        The Studio Wall & Influences
       </h1>
-      <p class="text-lg sm:text-xl text-graphite-600 font-light leading-relaxed max-w-2xl font-sans">
-        Inspired by creative home office backdrops and design archives. An intentional curation of footwear, typography, industrial objects, identity systems, and topography that trains my intuition.
+      <p class="text-sm font-sans text-carbon/80 max-w-xl leading-relaxed">
+        An archive of design objects, footwear engineering, identity systems, and endurance pursuits that shape how I recognize quality and consumer behavior.
       </p>
 
       <!-- Category Filter Links -->
-      <div class="pt-6 flex flex-wrap items-center gap-4 text-xs font-mono uppercase tracking-widest" id="artifact-filters">
+      <div class="pt-6 flex flex-wrap items-center gap-4 text-xs font-technical uppercase tracking-extended" id="artifact-filters">
         <button
           data-filter="all"
-          class="art-filter-link active text-burnt-600 font-bold transition-colors"
+          class="art-filter-btn active text-carbon font-bold border-b border-carbon pb-0.5 transition-colors"
         >
           All Items ({artifacts.length})
         </button>
-        <span class="text-bone-400">/</span>
+        <span class="text-concrete/40">/</span>
         <button
           data-filter="footwear"
-          class="art-filter-link text-carbon-800 hover:text-burnt-600 transition-colors"
+          class="art-filter-btn text-concrete hover:text-carbon transition-colors"
         >
           Footwear
         </button>
-        <span class="text-bone-400">/</span>
+        <span class="text-concrete/40">/</span>
         <button
           data-filter="identity"
-          class="art-filter-link text-carbon-800 hover:text-burnt-600 transition-colors"
+          class="art-filter-btn text-concrete hover:text-carbon transition-colors"
         >
           Logos & Identity
         </button>
-        <span class="text-bone-400">/</span>
+        <span class="text-concrete/40">/</span>
         <button
-          data-filter="typography"
-          class="art-filter-link text-carbon-800 hover:text-burnt-600 transition-colors"
+          data-filter="architecture"
+          class="art-filter-btn text-concrete hover:text-carbon transition-colors"
         >
-          Typography
+          Architecture
         </button>
-        <span class="text-bone-400">/</span>
-        <button
-          data-filter="objects"
-          class="art-filter-link text-carbon-800 hover:text-burnt-600 transition-colors"
-        >
-          Industrial Design
-        </button>
-        <span class="text-bone-400">/</span>
-        <button
-          data-filter="spaces"
-          class="art-filter-link text-carbon-800 hover:text-burnt-600 transition-colors"
-        >
-          Topography
-        </button>
-        <span class="text-bone-400">/</span>
+        <span class="text-concrete/40">/</span>
         <button
           data-filter="endurance"
-          class="art-filter-link text-carbon-800 hover:text-burnt-600 transition-colors"
+          class="art-filter-btn text-concrete hover:text-carbon transition-colors"
         >
           Endurance
+        </button>
+        <span class="text-concrete/40">/</span>
+        <button
+          data-filter="design"
+          class="art-filter-btn text-concrete hover:text-carbon transition-colors"
+        >
+          Design
         </button>
       </div>
     </header>
 
-    <!-- The Studio Gallery Grid (Asymmetric Editorial Layout, No Box Cards) -->
-    <div class="py-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-16 border-b border-bone-300" id="artifacts-grid">
-      {artifacts.map((item, idx) => (
-        <article
-          class="artifact-item space-y-4 group"
-          data-category={item.category}
-        >
-          <!-- Image Frame with Hairline Border -->
-          <div class="aspect-[4/3] w-full overflow-hidden bg-bone-200 border border-bone-300 relative">
-            <img
-              src={item.image}
-              alt={item.title}
-              class="w-full h-full object-cover grayscale contrast-105 group-hover:grayscale-0 group-hover:scale-[1.03] transition-all duration-500"
-              loading="lazy"
-            />
-            <div class="absolute top-2.5 right-2.5 bg-carbon-900/80 backdrop-blur-sm text-bone-100 text-[9px] font-mono uppercase tracking-widest px-2 py-0.5">
-              {item.categoryLabel}
+    <!-- 01. The Visual Gallery Wall Grid -->
+    <section class="space-y-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" id="artifacts-grid">
+        {artifacts.map((item, idx) => (
+          <article
+            class="artifact-item space-y-3 group"
+            data-category={item.category}
+          >
+            <!-- Image Frame with Concrete Hairline -->
+            <div class="aspect-[4/3] w-full overflow-hidden bg-chalk border border-concrete/40 relative">
+              <img
+                src={item.image}
+                alt={item.title}
+                class="w-full h-full object-cover grayscale contrast-110 group-hover:grayscale-0 transition-all duration-300"
+                loading="lazy"
+              />
+              <div class="absolute top-2 right-2 bg-carbon text-chalk text-[9px] font-technical uppercase tracking-widest px-2 py-0.5">
+                {item.categoryLabel}
+              </div>
+              <div class="absolute bottom-2 left-2 text-chalk/90 text-[10px] font-technical tracking-widest bg-carbon/80 px-1.5 py-0.5">
+                FIG. 0{idx + 1}
+              </div>
             </div>
-            <div class="absolute bottom-2.5 left-2.5 text-bone-100/90 text-[10px] font-mono tracking-widest">
-              FIG. 0{idx + 1}
-            </div>
-          </div>
 
-          <!-- Museum Caption -->
-          <div class="space-y-1.5 pt-1">
-            <div class="flex items-baseline justify-between text-[11px] font-mono text-graphite-500">
-              <span class="text-burnt-600 font-semibold">{item.source}</span>
-              {item.year && <span>{item.year}</span>}
+            <!-- Title & Punchy Curator Commentary -->
+            <div class="space-y-1">
+              <div class="flex items-baseline justify-between text-[10px] font-technical text-concrete uppercase tracking-wider">
+                <span>{item.source}</span>
+                {item.year && <span>{item.year}</span>}
+              </div>
+              <h2 class="font-display font-bold text-lg text-carbon uppercase tracking-wide group-hover:text-racingRed transition-colors">
+                {item.title}
+              </h2>
+              <p class="text-xs font-sans text-carbon/75 font-light leading-relaxed pt-1">
+                "{item.note}"
+              </p>
             </div>
-            <h2 class="font-serif text-2xl font-medium text-carbon-900 group-hover:text-burnt-600 transition-colors leading-snug">
-              {item.title}
-            </h2>
-            <p class="text-xs text-graphite-600 font-sans font-light leading-relaxed pt-1">
-              "{item.note}"
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <!-- 02. Dedicated Endurance Athletics Section -->
+    <section class="space-y-8 border-t border-concrete/30 pt-16">
+      <div class="border-b border-concrete/30 pb-4">
+        <span class="text-xs font-technical uppercase tracking-extended text-concrete block">
+          02 // PURSUITS & DISCIPLINE
+        </span>
+        <h2 class="font-display font-bold text-xl text-carbon uppercase tracking-wide">
+          Endurance Athletics & Testing
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {enduranceProfile.map((ep) => (
+          <div class="border border-concrete/40 p-8 space-y-4 bg-chalk">
+            <span class="text-[10px] font-technical uppercase tracking-extended text-racingRed font-bold block">
+              DISCIPLINE FOCUS
+            </span>
+            <h3 class="font-display font-bold text-xl text-carbon uppercase tracking-tight">
+              {ep.discipline}
+            </h3>
+            <div class="space-y-1 text-xs font-technical text-concrete uppercase">
+              <div><strong>Focus:</strong> {ep.focus}</div>
+              <div><strong>Primary Terrain:</strong> {ep.terrain}</div>
+            </div>
+            <p class="text-xs font-sans text-carbon/80 leading-relaxed pt-2 border-t border-concrete/20">
+              "{ep.notes}"
             </p>
           </div>
-        </article>
-      ))}
-    </div>
+        ))}
+      </div>
+    </section>
 
-    <!-- Curator Colophon -->
-    <div class="pt-12 flex flex-col sm:flex-row items-baseline justify-between gap-6 text-xs font-mono text-graphite-500">
-      <div>
-        <span>INDEX COUNT:</span> <strong class="text-carbon-900">{artifacts.length} ARTIFACTS</strong> &bull; Curated and updated regularly
+    <!-- 03. Currently Obsessed / Reading / Listening / Gear in Test -->
+    <section class="space-y-8 border-t border-concrete/30 pt-16">
+      <div class="border-b border-concrete/30 pb-4">
+        <span class="text-xs font-technical uppercase tracking-extended text-concrete block">
+          03 // IN ROTATION
+        </span>
+        <h2 class="font-display font-bold text-xl text-carbon uppercase tracking-wide">
+          Currently Obsessed / Reading / Listening
+        </h2>
       </div>
-      <div>
-        <a href="/connect" class="text-burnt-600 hover:text-burnt-700 font-semibold uppercase tracking-widest">Inquire / Suggest an Artifact &rarr;</a>
+
+      <div class="divide-y divide-concrete/30">
+        {currentlyObsessed.map((item) => (
+          <div class="py-5 grid grid-cols-1 sm:grid-cols-12 gap-3 items-baseline text-xs font-technical">
+            <div class="sm:col-span-3 text-concrete uppercase tracking-wider font-bold">
+              [{item.category}]
+            </div>
+            <div class="sm:col-span-4 font-display font-bold text-carbon text-sm uppercase tracking-wide">
+              {item.title}
+              <span class="block text-xs font-sans text-concrete font-normal normal-case mt-0.5">
+                by {item.authorOrBrand}
+              </span>
+            </div>
+            <div class="sm:col-span-5 font-sans text-xs text-carbon/80 font-light leading-relaxed">
+              {item.oneLiner}
+            </div>
+          </div>
+        ))}
       </div>
-    </div>
+    </section>
   </div>
 </Layout>
 
 <script>
-  const filterLinks = document.querySelectorAll('.art-filter-link');
+  const filterBtns = document.querySelectorAll('.art-filter-btn');
   const artifactItems = document.querySelectorAll('.artifact-item');
 
-  filterLinks.forEach((link) => {
-    link.addEventListener('click', () => {
-      filterLinks.forEach((l) => {
-        l.classList.remove('active', 'text-burnt-600', 'font-bold');
-        l.classList.add('text-carbon-800');
+  filterBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach((b) => {
+        b.classList.remove('active', 'text-carbon', 'font-bold', 'border-b', 'border-carbon');
+        b.classList.add('text-concrete');
       });
 
-      link.classList.remove('text-carbon-800');
-      link.classList.add('active', 'text-burnt-600', 'font-bold');
+      btn.classList.remove('text-concrete');
+      btn.classList.add('active', 'text-carbon', 'font-bold', 'border-b', 'border-carbon');
 
-      const filter = link.getAttribute('data-filter');
+      const filter = btn.getAttribute('data-filter');
 
       artifactItems.forEach((item) => {
         const cat = item.getAttribute('data-category');

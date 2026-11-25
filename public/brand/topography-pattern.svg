@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" fill="none">
+  <!-- Oversized Abstract Architectural Topographic Contours -->
+  <!-- Thin clean strokes (0.85px), generous negative space, smooth natural curves -->
+  <g stroke="#A6A6A6" stroke-width="0.85" opacity="0.45" fill="none">
+    <path d="M-50,150 C200,80 450,220 700,120 C950,20 1150,180 1250,90" />
+    <path d="M-50,260 C180,200 420,340 680,230 C940,120 1120,280 1250,190" />
+    <path d="M-50,380 C160,310 400,460 660,350 C920,240 1100,390 1250,310" />
+    <path d="M-50,510 C140,430 380,590 640,480 C900,370 1080,510 1250,440" />
+    <path d="M-50,650 C120,560 360,720 620,620 C880,520 1060,640 1250,580" />
+    <path d="M-50,780 C100,700 340,840 600,760 C860,680 1040,780 1250,720" />
+  </g>
+</svg>

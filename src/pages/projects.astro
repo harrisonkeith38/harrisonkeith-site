@@ -1,176 +1,277 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { projects } from '../data/projects';
+import { projectIndex, detailedProjects, strategicFrameworks, confidentialDecks } from '../data/projects';
 ---
 
 <Layout
-  title="My Projects — Harrison Keith"
-  description="Strategic case studies, brand architecture, consumer research, and operational execution."
+  title="Projects & Case Studies — HARRISON KEITH"
+  description="Strategic case studies, brand architecture, frameworks, and confidential advisory deliverables."
 >
-  <div class="max-w-6xl mx-auto px-6 sm:px-8 py-20">
+  <div class="max-w-6xl mx-auto px-6 py-16 sm:py-20 space-y-24">
     <!-- Header -->
-    <header class="space-y-6 pb-16 border-b border-bone-300">
-      <div class="flex items-center gap-2 text-[10px] font-mono uppercase tracking-widest text-graphite-500">
-        <span class="w-1.5 h-1.5 rounded-full bg-burnt-600"></span>
-        <span>03 // Selected Strategic Work</span>
+    <header class="space-y-4 pb-12 border-b border-concrete/30">
+      <div class="flex items-center gap-2">
+        <div class="flex items-center gap-1">
+          <span class="w-2.5 h-[3px] bg-signalYellow transform -skew-x-12 inline-block"></span>
+          <span class="w-2.5 h-[3px] bg-racingRed transform -skew-x-12 inline-block"></span>
+          <span class="w-2.5 h-[3px] bg-alpineBlue transform -skew-x-12 inline-block"></span>
+        </div>
+        <span class="text-xs font-technical uppercase tracking-extended text-concrete">
+          SELECTED WORK & CASE ARCHIVE
+        </span>
       </div>
-      <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl font-medium tracking-tight text-carbon-900 leading-[1.02]">
-        Strategic Case Studies & Deliverables
-      </h1>
-      <p class="text-lg sm:text-xl text-graphite-600 font-light leading-relaxed max-w-2xl font-sans">
-        To preserve non-disclosure commitments and proprietary client data, these case studies highlight strategic framing, methodology, decision frameworks, and impact.
-      </p>
 
-      <!-- Minimalist Filter Bar -->
-      <div class="pt-6 flex flex-wrap items-center gap-4 text-xs font-mono uppercase tracking-widest" id="filter-container">
-        <button
-          data-filter="all"
-          class="filter-link active text-burnt-600 font-bold transition-colors"
-        >
-          All Work ({projects.length})
-        </button>
-        <span class="text-bone-400">/</span>
-        <button
-          data-filter="Brand Strategy"
-          class="filter-link text-carbon-800 hover:text-burnt-600 transition-colors"
-        >
-          Brand Strategy
-        </button>
-        <span class="text-bone-400">/</span>
-        <button
-          data-filter="Consumer Insights"
-          class="filter-link text-carbon-800 hover:text-burnt-600 transition-colors"
-        >
-          Consumer Insights
-        </button>
-        <span class="text-bone-400">/</span>
-        <button
-          data-filter="Operational Leadership"
-          class="filter-link text-carbon-800 hover:text-burnt-600 transition-colors"
-        >
-          Operational Leadership
-        </button>
-      </div>
+      <h1 class="font-display font-extrabold text-3xl sm:text-5xl text-carbon uppercase tracking-tight">
+        Projects & Strategic Deliverables
+      </h1>
+      <p class="text-sm font-sans text-carbon/80 max-w-xl leading-relaxed">
+        Public strategic case studies, proprietary frameworks, and confidential executive advisory decks.
+      </p>
     </header>
 
-    <!-- Case Studies List (Container-Free Editorial Spread) -->
-    <div class="divide-y divide-bone-300 border-b border-bone-300" id="projects-grid">
-      {projects.map((p, idx) => (
-        <article
-          class="project-item py-16 space-y-10 group"
-          data-tags={JSON.stringify(p.tags)}
-        >
-          <!-- Masthead Row -->
-          <div class="flex flex-col md:flex-row md:items-baseline justify-between gap-4">
-            <div class="space-y-1">
-              <span class="text-xs font-mono text-burnt-600 font-bold tracking-widest block">
-                CASE 0{idx + 1} &bull; {p.clientCategory}
-              </span>
-              <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-medium text-carbon-900 group-hover:text-burnt-600 transition-colors">
-                {p.title}
-              </h2>
+    <!-- 01. High-Level Project Index Table -->
+    <section class="space-y-6">
+      <div class="flex items-baseline justify-between border-b border-concrete/30 pb-4">
+        <div>
+          <span class="text-xs font-technical uppercase tracking-extended text-concrete block">01 // REPOSITORY</span>
+          <h2 class="font-display font-bold text-xl text-carbon uppercase tracking-wide">High-Level Index</h2>
+        </div>
+        <span class="text-xs font-technical text-concrete uppercase">{projectIndex.length} Deliverables</span>
+      </div>
+
+      <div class="divide-y divide-concrete/30">
+        {projectIndex.map((item) => (
+          <div class="py-3.5 grid grid-cols-1 sm:grid-cols-12 gap-2 sm:gap-4 items-baseline text-xs font-technical">
+            <div class="sm:col-span-3 font-display font-bold text-carbon uppercase tracking-wider">
+              {item.brand}
             </div>
-            <div class="text-xs font-mono text-graphite-500 md:text-right">
-              <div>{p.period}</div>
-              <div class="text-carbon-800 font-medium">{p.role}</div>
+            <div class="sm:col-span-5 font-sans text-sm text-carbon">
+              {item.name}
+            </div>
+            <div class="sm:col-span-2 text-concrete text-[11px] uppercase tracking-wider">
+              {item.discipline}
+            </div>
+            <div class="sm:col-span-2 sm:text-right flex items-center justify-between sm:justify-end gap-2">
+              <span class="text-concrete">{item.year}</span>
+              <span class={`text-[10px] uppercase font-bold px-2 py-0.5 rounded ${
+                item.status === 'Public Case' ? 'border border-carbon text-carbon' : 'bg-carbon text-chalk'
+              }`}>
+                {item.status === 'Public Case' ? 'Public' : 'Gated 🔒'}
+              </span>
             </div>
           </div>
+        ))}
+      </div>
+    </section>
 
-          <!-- Editorial Tagline -->
-          <p class="font-serif italic text-xl sm:text-2xl text-carbon-800 leading-snug max-w-4xl font-normal">
-            "{p.tagline}"
-          </p>
+    <!-- 02. Detailed Strategic Case Studies -->
+    <section class="space-y-12">
+      <div class="border-b border-concrete/30 pb-4">
+        <span class="text-xs font-technical uppercase tracking-extended text-concrete block">02 // DEEP DIVES</span>
+        <h2 class="font-display font-bold text-xl text-carbon uppercase tracking-wide">Detailed Strategic Case Studies</h2>
+      </div>
 
-          <!-- 3-Column Breakdown (Clean Grid, No Container Boxes) -->
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pt-4 border-t border-bone-200">
-            <!-- Col 1: Problem -->
-            <div class="space-y-2">
-              <span class="text-[10px] font-mono uppercase tracking-widest text-graphite-500 block">
-                [01] Strategic Challenge
-              </span>
-              <p class="text-xs sm:text-sm text-graphite-700 leading-relaxed font-sans font-light">
-                {p.challenge}
-              </p>
-            </div>
-
-            <!-- Col 2: Insight -->
-            <div class="space-y-2">
-              <span class="text-[10px] font-mono uppercase tracking-widest text-graphite-500 block">
-                [02] Core Insight
-              </span>
-              <p class="text-xs sm:text-sm text-graphite-700 leading-relaxed font-sans font-light">
-                {p.insight}
-              </p>
-            </div>
-
-            <!-- Col 3: Strategy & Impact -->
-            <div class="space-y-2">
-              <span class="text-[10px] font-mono uppercase tracking-widest text-graphite-500 block">
-                [03] Execution & Business Value
-              </span>
-              <p class="text-xs sm:text-sm text-graphite-700 leading-relaxed font-sans font-light">
-                {p.impact}
-              </p>
-            </div>
-          </div>
-
-          <!-- Bottom: Takeaway & Tags -->
-          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs font-mono pt-4 text-graphite-500">
-            <div>
-              <span class="text-carbon-900 font-medium">Core Reflection:</span> {p.reflection}
-            </div>
-            <div class="flex flex-wrap gap-2">
-              {p.tags.map((tag) => (
-                <span class="text-[10px] uppercase tracking-wider px-2 py-0.5 bg-bone-200 text-carbon-800 rounded-sm">
-                  {tag}
+      <div class="divide-y divide-concrete/30">
+        {detailedProjects.map((p, idx) => (
+          <article class="py-14 space-y-8 group">
+            <div class="flex flex-col md:flex-row md:items-baseline justify-between gap-2">
+              <div>
+                <span class="text-xs font-technical font-bold text-racingRed uppercase tracking-wider block">
+                  CASE 0{idx + 1} &bull; {p.brand}
                 </span>
-              ))}
+                <h3 class="font-display font-extrabold text-2xl sm:text-3xl text-carbon uppercase tracking-tight mt-1">
+                  {p.title}
+                </h3>
+              </div>
+              <div class="text-xs font-technical text-concrete md:text-right">
+                <span>{p.year}</span> &bull; <span>{p.role}</span>
+              </div>
+            </div>
+
+            <p class="font-display font-semibold text-lg text-carbon/90 uppercase tracking-tight max-w-3xl">
+              "{p.tagline}"
+            </p>
+
+            <!-- 3-Column Structured Breakdown -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pt-4 border-t border-concrete/20 text-xs font-sans">
+              <div class="space-y-2">
+                <span class="font-technical text-[10px] uppercase tracking-extended text-concrete block">
+                  [01] The Strategic Challenge
+                </span>
+                <p class="text-carbon/80 leading-relaxed font-light">
+                  {p.challenge}
+                </p>
+              </div>
+
+              <div class="space-y-2">
+                <span class="font-technical text-[10px] uppercase tracking-extended text-concrete block">
+                  [02] The Core Insight
+                </span>
+                <p class="text-carbon/80 leading-relaxed font-light">
+                  {p.insight}
+                </p>
+              </div>
+
+              <div class="space-y-2">
+                <span class="font-technical text-[10px] uppercase tracking-extended text-concrete block">
+                  [03] Execution & Impact
+                </span>
+                <p class="text-carbon/80 leading-relaxed font-light">
+                  {p.impact}
+                </p>
+              </div>
+            </div>
+
+            <!-- Framework Tag -->
+            <div class="text-xs font-technical text-concrete pt-2">
+              <span class="text-carbon font-bold">Associated Framework:</span> {p.frameworkSummary}
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <!-- 03. Strategic Frameworks & Thinking Breakdown -->
+    <section class="space-y-12">
+      <div class="border-b border-concrete/30 pb-4">
+        <span class="text-xs font-technical uppercase tracking-extended text-concrete block">03 // MODELS</span>
+        <h2 class="font-display font-bold text-xl text-carbon uppercase tracking-wide">Strategic Frameworks & Thinking</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {strategicFrameworks.map((fw) => (
+          <div class="border border-concrete/40 p-8 space-y-6 bg-chalk">
+            <div class="space-y-2">
+              <span class="text-[10px] font-technical uppercase tracking-extended text-concrete block">
+                STRATEGIC FRAMEWORK
+              </span>
+              <h3 class="font-display font-bold text-xl text-carbon uppercase tracking-tight">
+                {fw.name}
+              </h3>
+              <p class="text-xs font-sans text-carbon/70 leading-relaxed">
+                {fw.subtitle}
+              </p>
+            </div>
+
+            <div class="space-y-3 pt-2 border-t border-concrete/20">
+              <span class="text-[10px] font-technical uppercase tracking-extended text-concrete block">
+                CORE PILLARS
+              </span>
+              <ul class="space-y-3 text-xs font-sans text-carbon">
+                {fw.pillars.map((pil) => (
+                  <li class="space-y-0.5">
+                    <span class="font-display font-bold uppercase text-[11px] text-carbon block">
+                      &bull; {pil.label}
+                    </span>
+                    <span class="text-carbon/70 font-light block pl-3">
+                      {pil.description}
+                    </span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
-        </article>
-      ))}
-    </div>
+        ))}
+      </div>
+    </section>
 
-    <!-- Next Page Anchor -->
-    <div class="pt-12 flex flex-col sm:flex-row items-baseline justify-between gap-6 text-xs font-mono">
-      <div class="text-graphite-500 uppercase tracking-widest">
-        Next: <a href="/interests" class="text-burnt-600 hover:text-burnt-700 font-semibold ml-1">Explore The Studio Wall &rarr;</a>
+    <!-- 04. Password-Gated Client Strategy Decks -->
+    <section class="space-y-8 border-t border-concrete/30 pt-16">
+      <div class="border-b border-concrete/30 pb-4 flex items-baseline justify-between">
+        <div>
+          <span class="text-xs font-technical uppercase tracking-extended text-racingRed font-bold block">
+            04 // RESTRICTED ACCESS
+          </span>
+          <h2 class="font-display font-bold text-xl text-carbon uppercase tracking-wide">
+            Password-Gated Client Work
+          </h2>
+        </div>
+        <span class="text-xs font-technical text-concrete uppercase">Client NDA Protected</span>
       </div>
-      <div>
-        <a href="/connect" class="text-carbon-900 hover:text-burnt-600 transition-colors uppercase tracking-widest">Direct Inquiries &rarr;</a>
+
+      <!-- Access Unlock Interface -->
+      <div class="border border-concrete/40 p-8 bg-chalk max-w-xl space-y-4" id="passcode-card">
+        <div class="space-y-1">
+          <h3 class="font-display font-bold text-base text-carbon uppercase tracking-wide">
+            Enter Client Access Passcode
+          </h3>
+          <p class="text-xs font-sans text-carbon/70 leading-relaxed">
+            Proprietary strategy decks for enterprise CPG and active lifestyle brands require client clearance. Enter your provided passcode below:
+          </p>
+        </div>
+
+        <form id="gate-form" class="flex items-center gap-3 pt-2">
+          <input
+            type="password"
+            id="gate-input"
+            placeholder="ENTER PASSCODE (TRY: HK-CLIENT)"
+            class="flex-grow px-3 py-2 text-xs font-technical tracking-extended uppercase bg-chalk border border-concrete/60 focus:border-carbon focus:outline-none"
+          />
+          <button
+            type="submit"
+            class="px-5 py-2 bg-carbon text-chalk hover:bg-racingRed text-xs font-technical uppercase font-bold tracking-extended transition-colors whitespace-nowrap"
+          >
+            Unlock &rarr;
+          </button>
+        </form>
+        <p id="gate-error" class="text-xs font-technical text-racingRed hidden">
+          Incorrect passcode. Contact contact@jharrisonkeith.com for access credentials.
+        </p>
       </div>
-    </div>
+
+      <!-- Unlocked Decks Container (Hidden by default) -->
+      <div id="unlocked-decks" class="hidden space-y-6">
+        <div class="p-4 bg-signalYellow/15 border border-signalYellow/40 text-xs font-technical uppercase tracking-extended text-carbon">
+          ✓ Client credentials verified. Confidential materials unlocked for this session.
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {confidentialDecks.map((deck) => (
+            <div class="border border-carbon p-6 space-y-4 bg-chalk">
+              <span class="text-[10px] font-technical uppercase tracking-extended text-racingRed font-bold block">
+                CONFIDENTIAL DECK &bull; {deck.year}
+              </span>
+              <h4 class="font-display font-bold text-lg text-carbon uppercase tracking-tight">
+                {deck.title}
+              </h4>
+              <p class="text-xs font-sans text-carbon/80">
+                {deck.scope}
+              </p>
+              <div class="pt-4 border-t border-concrete/30 flex items-center justify-between text-xs font-technical">
+                <span class="text-concrete">{deck.client}</span>
+                <a
+                  href="#download"
+                  class="text-carbon font-bold hover:text-racingRed uppercase tracking-wider"
+                  onclick="alert('Downloading confidential presentation dossier (PDF)...')"
+                >
+                  Download Deck (PDF) &darr;
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   </div>
 </Layout>
 
 <script>
-  const filterLinks = document.querySelectorAll('.filter-link');
-  const projectItems = document.querySelectorAll('.project-item');
+  const form = document.getElementById('gate-form');
+  const input = document.getElementById('gate-input') as HTMLInputElement;
+  const errorMsg = document.getElementById('gate-error');
+  const unlocked = document.getElementById('unlocked-decks');
+  const card = document.getElementById('passcode-card');
 
-  filterLinks.forEach((link) => {
-    link.addEventListener('click', () => {
-      filterLinks.forEach((l) => {
-        l.classList.remove('active', 'text-burnt-600', 'font-bold');
-        l.classList.add('text-carbon-800');
-      });
-
-      link.classList.remove('text-carbon-800');
-      link.classList.add('active', 'text-burnt-600', 'font-bold');
-
-      const filter = link.getAttribute('data-filter');
-
-      projectItems.forEach((item) => {
-        if (filter === 'all') {
-          (item as HTMLElement).style.display = 'block';
-        } else {
-          const tags = JSON.parse(item.getAttribute('data-tags') || '[]');
-          if (tags.includes(filter)) {
-            (item as HTMLElement).style.display = 'block';
-          } else {
-            (item as HTMLElement).style.display = 'none';
-          }
-        }
-      });
+  if (form && input && errorMsg && unlocked) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const code = input.value.trim().toUpperCase();
+      if (code === 'HK-CLIENT' || code === 'HK-ADVISORY' || code === 'ACCESS' || code === 'RECRUITER') {
+        errorMsg.classList.add('hidden');
+        unlocked.classList.remove('hidden');
+        if (card) card.classList.add('hidden');
+      } else {
+        errorMsg.classList.remove('hidden');
+      }
     });
-  });
+  }
 </script>

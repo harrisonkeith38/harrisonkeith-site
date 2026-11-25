@@ -3,101 +3,131 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout
-  title="Connect — Harrison Keith"
-  description="Direct contact information, professional dialogue, and advisory inquiries for J. Harrison Keith."
+  title="Connect — HARRISON KEITH"
+  description="Direct contact information, professional dialogue, and advisory inquiries for Harrison Keith."
 >
-  <div class="max-w-4xl mx-auto px-6 sm:px-8 py-20">
+  <div class="max-w-4xl mx-auto px-6 py-16 sm:py-20">
     <!-- Header -->
-    <header class="space-y-6 pb-16 border-b border-bone-300">
-      <div class="flex items-center gap-2 text-[10px] font-mono uppercase tracking-widest text-graphite-500">
-        <span class="w-1.5 h-1.5 rounded-full bg-burnt-600"></span>
-        <span>05 // Inquiries & Dialogue</span>
+    <header class="space-y-4 pb-12 border-b border-concrete/30">
+      <div class="flex items-center gap-2">
+        <div class="flex items-center gap-1">
+          <span class="w-2.5 h-[3px] bg-signalYellow transform -skew-x-12 inline-block"></span>
+          <span class="w-2.5 h-[3px] bg-racingRed transform -skew-x-12 inline-block"></span>
+          <span class="w-2.5 h-[3px] bg-alpineBlue transform -skew-x-12 inline-block"></span>
+        </div>
+        <span class="text-xs font-technical uppercase tracking-extended text-concrete">
+          INQUIRIES & DIALOGUE
+        </span>
       </div>
-      <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl font-medium tracking-tight text-carbon-900 leading-[1.02]">
-        Let’s start a conversation.
+
+      <h1 class="font-display font-extrabold text-3xl sm:text-5xl text-carbon uppercase tracking-tight">
+        Connect & Inquiries
       </h1>
-      <p class="text-lg sm:text-xl text-graphite-600 font-light leading-relaxed max-w-xl font-sans">
+      <p class="text-sm font-sans text-carbon/80 max-w-xl leading-relaxed">
         Open to brand marketing leadership opportunities, strategic advisory, and collaborative dialogues with ambitious founders and operators.
       </p>
     </header>
 
-    <!-- Clean Editorial Directory (Container-Free) -->
-    <div class="py-12 divide-y divide-bone-300 border-b border-bone-300">
-      <!-- Direct Email -->
-      <div class="py-10 grid grid-cols-1 sm:grid-cols-12 gap-6 items-baseline group">
+    <!-- Contact Directory -->
+    <div class="py-12 divide-y divide-concrete/30 border-b border-concrete/30">
+      <!-- Direct Email & Copy Button -->
+      <div class="py-8 grid grid-cols-1 sm:grid-cols-12 gap-4 items-baseline">
         <div class="sm:col-span-4">
-          <span class="text-xs font-mono uppercase tracking-widest text-burnt-600 font-bold block">
-            Primary Channel
+          <span class="text-xs font-technical uppercase tracking-extended text-concrete block">
+            PRIMARY INBOX
           </span>
-          <span class="text-sm font-sans text-graphite-500">Executive & Advisory Inquiries</span>
+          <span class="text-xs font-sans text-concrete">Executive & Advisory</span>
         </div>
-        <div class="sm:col-span-8">
+        <div class="sm:col-span-8 flex flex-wrap items-center gap-4">
           <a
             href="mailto:contact@jharrisonkeith.com"
-            class="font-serif text-2xl sm:text-3xl text-carbon-900 group-hover:text-burnt-600 font-medium transition-colors inline-flex items-center gap-2"
+            class="font-display font-bold text-xl sm:text-2xl text-carbon hover:text-racingRed transition-colors uppercase tracking-tight"
           >
-            <span>contact@jharrisonkeith.com</span>
-            <span class="group-hover:translate-x-1 transition-transform">&rarr;</span>
+            contact@jharrisonkeith.com
           </a>
+          <button
+            id="copy-btn"
+            class="px-3 py-1 text-[11px] font-technical uppercase tracking-extended border border-concrete/50 hover:border-carbon text-carbon transition-all"
+          >
+            Copy Address
+          </button>
         </div>
       </div>
 
       <!-- LinkedIn -->
-      <div class="py-10 grid grid-cols-1 sm:grid-cols-12 gap-6 items-baseline group">
+      <div class="py-8 grid grid-cols-1 sm:grid-cols-12 gap-4 items-baseline">
         <div class="sm:col-span-4">
-          <span class="text-xs font-mono uppercase tracking-widest text-burnt-600 font-bold block">
-            Network
+          <span class="text-xs font-technical uppercase tracking-extended text-concrete block">
+            NETWORK
           </span>
-          <span class="text-sm font-sans text-graphite-500">Professional Profile</span>
+          <span class="text-xs font-sans text-concrete">Professional Profile</span>
         </div>
         <div class="sm:col-span-8">
           <a
             href="https://linkedin.com"
             target="_blank"
             rel="noopener noreferrer"
-            class="font-serif text-2xl sm:text-3xl text-carbon-900 group-hover:text-burnt-600 font-medium transition-colors inline-flex items-center gap-2"
+            class="font-display font-bold text-xl text-carbon hover:text-racingRed transition-colors uppercase tracking-tight inline-flex items-center gap-1.5"
           >
-            <span>linkedin.com/in/harrisonkeith</span>
-            <span class="group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform">&nearr;</span>
+            <span>LinkedIn Profile</span>
+            <span class="text-sm">&nearr;</span>
           </a>
         </div>
       </div>
 
-      <!-- Base -->
-      <div class="py-10 grid grid-cols-1 sm:grid-cols-12 gap-6 items-baseline">
+      <!-- Résumé Direct PDF Download -->
+      <div class="py-8 grid grid-cols-1 sm:grid-cols-12 gap-4 items-baseline">
         <div class="sm:col-span-4">
-          <span class="text-xs font-mono uppercase tracking-widest text-graphite-500 block">
-            Location
+          <span class="text-xs font-technical uppercase tracking-extended text-concrete block">
+            DOCUMENTATION
           </span>
-          <span class="text-sm font-sans text-graphite-500">Base of Operations</span>
+          <span class="text-xs font-sans text-concrete">Official Credentials</span>
         </div>
         <div class="sm:col-span-8">
-          <span class="font-serif text-2xl text-carbon-900 block font-medium">
-            Austin, Texas
-          </span>
-          <span class="text-xs font-mono text-graphite-500 block mt-1">
-            Central Time (CT) &bull; Open to selective travel and hybrid leadership
-          </span>
+          <a
+            href="/harrison-keith-resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-5 py-2.5 bg-carbon text-chalk hover:bg-racingRed transition-colors text-xs font-technical uppercase font-bold tracking-extended inline-flex items-center gap-2"
+          >
+            <span>Download Full Résumé (PDF)</span>
+            <span>&darr;</span>
+          </a>
         </div>
       </div>
 
-      <!-- Résumé Upon Request -->
-      <div class="py-10 grid grid-cols-1 sm:grid-cols-12 gap-6 items-baseline">
+      <!-- Location Base -->
+      <div class="py-8 grid grid-cols-1 sm:grid-cols-12 gap-4 items-baseline">
         <div class="sm:col-span-4">
-          <span class="text-xs font-mono uppercase tracking-widest text-graphite-500 block">
-            Credentials
+          <span class="text-xs font-technical uppercase tracking-extended text-concrete block">
+            LOCATION
           </span>
-          <span class="text-sm font-sans text-graphite-500">Official Documentation</span>
+          <span class="text-xs font-sans text-concrete">Base of Operations</span>
         </div>
-        <div class="sm:col-span-8 space-y-1">
-          <span class="font-serif text-2xl text-carbon-900 block font-medium">
-            Full Executive Résumé PDF
+        <div class="sm:col-span-8">
+          <span class="font-display font-bold text-lg text-carbon uppercase tracking-wider block">
+            Austin, Texas
           </span>
-          <p class="text-xs text-graphite-600 leading-relaxed font-sans font-light">
-            Available directly upon request to protect personal phone and contact details. Send an email and I will reply with the latest dossier.
-          </p>
+          <span class="text-xs font-technical text-concrete uppercase tracking-extended block mt-0.5">
+            Central Time (CT) &bull; Available for Travel & Select Engagements
+          </span>
         </div>
       </div>
     </div>
   </div>
 </Layout>
+
+<script>
+  const copyBtn = document.getElementById('copy-btn');
+  if (copyBtn) {
+    copyBtn.addEventListener('click', () => {
+      navigator.clipboard.writeText('contact@jharrisonkeith.com');
+      copyBtn.innerText = 'COPIED ✓';
+      copyBtn.classList.add('bg-carbon', 'text-chalk');
+      setTimeout(() => {
+        copyBtn.innerText = 'COPY ADDRESS';
+        copyBtn.classList.remove('bg-carbon', 'text-chalk');
+      }, 2000);
+    });
+  }
+</script>
