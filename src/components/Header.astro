@@ -3,14 +3,13 @@ import LockupSide from './LockupSide.astro';
 
 const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
 const navItems = [
-  { href: '/career', label: 'Career' },
-  { href: '/brand', label: 'Brand' },
-  { href: '/interests', label: 'My Interests' },
+  { href: '/path', label: 'My Path' },
+  { href: '/brand', label: 'My Brand' },
 ];
 ---
 
 <header class="sticky top-0 z-50 bg-chalk/95 backdrop-blur-md border-b border-concrete/30">
-  <div class="max-w-6xl mx-auto px-6 h-18 py-3.5 flex items-center justify-between">
+  <div class="max-w-6xl mx-auto px-4 min-[360px]:px-6 h-18 py-3.5 flex items-center justify-between">
     <!-- Brand: HK mark and wordmark, cut from the supplied artwork -->
     <a href="/" class="flex items-center gap-3 select-none" aria-label="Harrison Keith, home">
       <LockupSide />

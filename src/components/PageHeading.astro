@@ -9,9 +9,10 @@ const { title, intro } = Astro.props;
 <div class="space-y-5 pb-10">
   <h1 class="font-display font-extrabold text-3xl sm:text-5xl uppercase leading-tight">{title}</h1>
   <span class="flex items-center gap-1.5" aria-hidden="true">
-    <span class="w-10 h-2 bg-signalYellow transform -skew-x-[40deg] inline-block"></span>
-    <span class="w-10 h-2 bg-racingRed transform -skew-x-[40deg] inline-block"></span>
-    <span class="w-10 h-2 bg-alpineBlue transform -skew-x-[40deg] inline-block"></span>
+    <span class="w-10 h-2 bg-signalYellow transform -skew-x-12 inline-block"></span>
+    <span class="w-10 h-2 bg-racingRed transform -skew-x-12 inline-block"></span>
+    <span class="w-10 h-2 bg-alpineBlue transform -skew-x-12 inline-block"></span>
   </span>
   {intro && <p class="text-lg max-w-xl">{intro}</p>}
+  <slot />
 </div>

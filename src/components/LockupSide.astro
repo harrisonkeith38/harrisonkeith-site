@@ -9,14 +9,14 @@ const stripe = fluid ? 'w-[14%] aspect-[4/1]' : 'w-4 h-1';
 ---
 
 <span class:list={['flex items-center', fluid ? 'w-full gap-[3%]' : 'gap-3']}>
-  <img src="/brand/hk-mark.png" alt="" width="456" height="182" class={fluid ? 'w-[28%] h-auto' : 'h-6 w-auto'} />
+  <img src="/brand/hk-mark.png" alt="" width="456" height="182" class={fluid ? 'w-[28%] h-auto' : 'h-5 min-[360px]:h-6 w-auto'} />
   <span class:list={['w-[1px] bg-concrete', fluid ? 'self-stretch' : 'h-4 opacity-50']}></span>
   <span class:list={['flex flex-col', fluid ? 'flex-1 gap-2' : 'gap-1.5']}>
-    <img src="/brand/hk-wordmark.png" alt="" width="847" height="46" class={fluid ? 'w-full h-auto' : 'h-[10px] sm:h-3 w-auto'} />
+    <img src="/brand/hk-wordmark.png" alt="" width="847" height="46" class={fluid ? 'w-full h-auto' : 'h-2 min-[360px]:h-[10px] sm:h-3 w-auto'} />
     <span class="flex items-center gap-1.5" aria-hidden="true">
-      <span class={`${stripe} bg-signalYellow transform -skew-x-[40deg] inline-block`}></span>
-      <span class={`${stripe} bg-racingRed transform -skew-x-[40deg] inline-block`}></span>
-      <span class={`${stripe} bg-alpineBlue transform -skew-x-[40deg] inline-block`}></span>
+      <span class={`${stripe} bg-signalYellow transform -skew-x-12 inline-block`}></span>
+      <span class={`${stripe} bg-racingRed transform -skew-x-12 inline-block`}></span>
+      <span class={`${stripe} bg-alpineBlue transform -skew-x-12 inline-block`}></span>
     </span>
   </span>
 </span>
