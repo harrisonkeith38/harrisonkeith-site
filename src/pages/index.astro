@@ -1,164 +1,51 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { projectIndex } from '../data/projects';
-import { artifacts } from '../data/interests';
-
-const previewArtifacts = artifacts.slice(0, 3);
 ---
 
-<Layout title="HARRISON KEITH — Austin, TX">
-  <!-- 01. Minimalist Identity & One-Sentence Statement -->
-  <section class="max-w-6xl mx-auto px-6 pt-16 sm:pt-24 pb-16 border-b border-concrete/30">
+<Layout title="HARRISON KEITH">
+  <section class="max-w-6xl mx-auto px-6 pt-16 sm:pt-24 pb-8">
     <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
-      <!-- Left: Identity & Statement -->
       <div class="md:col-span-8 space-y-6">
-        <div class="flex items-center gap-3">
-          <div class="flex items-center gap-1">
-            <span class="w-3 h-[3px] bg-signalYellow transform -skew-x-12 inline-block"></span>
-            <span class="w-3 h-[3px] bg-racingRed transform -skew-x-12 inline-block"></span>
-            <span class="w-3 h-[3px] bg-alpineBlue transform -skew-x-12 inline-block"></span>
-          </div>
-          <span class="text-xs font-technical uppercase tracking-extended text-concrete">
-            HARRISON KEITH &bull; AUSTIN, TX
-          </span>
-        </div>
-
-        <!-- One-Sentence Statement (No Fluff) -->
-        <h1 class="font-display font-extrabold text-2xl sm:text-4xl lg:text-[2.75rem] tracking-tight text-carbon uppercase leading-[1.12]">
-          Brand strategist and former U.S. Army Officer bridging operational discipline, McCombs MBA business architecture, and consumer culture.
+        <h1>
+          <img src="/brand/hk-wordmark.png" alt="Harrison Keith" width="847" height="46" class="w-full max-w-xl h-auto" />
         </h1>
 
-        <!-- Direct Actions -->
-        <div class="pt-4 flex flex-wrap items-center gap-4 text-xs font-technical uppercase tracking-extended">
+        <span class="flex items-center gap-1.5" aria-hidden="true">
+          <span class="w-12 sm:w-16 h-2.5 bg-signalYellow transform -skew-x-[40deg] inline-block"></span>
+          <span class="w-12 sm:w-16 h-2.5 bg-racingRed transform -skew-x-[40deg] inline-block"></span>
+          <span class="w-12 sm:w-16 h-2.5 bg-alpineBlue transform -skew-x-[40deg] inline-block"></span>
+        </span>
+
+        <p class="text-lg sm:text-xl text-carbon max-w-md">
+          MBA candidate at Texas McCombs. U.S. Army veteran.
+        </p>
+
+        <div class="pt-2 flex flex-wrap gap-4 text-xs font-technical uppercase tracking-extended">
           <a
-            href="/projects"
-            class="px-5 py-2.5 bg-carbon text-chalk hover:bg-racingRed transition-colors inline-flex items-center gap-2 font-bold"
-          >
-            <span>View Projects</span>
-            <span>&rarr;</span>
-          </a>
-          <a
-            href="/timeline"
-            class="px-5 py-2.5 border border-carbon text-carbon hover:border-racingRed hover:text-racingRed transition-colors"
-          >
-            Career Timeline
-          </a>
-          <a
-            href="/harrison-keith-resume.pdf"
-            target="_blank"
+            href="https://www.linkedin.com/in/harrison-keith38/"
             rel="noopener noreferrer"
-            class="px-5 py-2.5 border border-concrete text-carbon hover:border-carbon transition-colors font-bold"
+            class="px-5 py-3 bg-carbon text-chalk font-bold hover:bg-racingRed transition-colors"
           >
-            Download Résumé (PDF) &darr;
+            LinkedIn
+          </a>
+          <a
+            href="mailto:contact@jharrisonkeith.com"
+            class="px-5 py-3 border border-carbon text-carbon font-bold hover:border-racingRed hover:text-racingRed transition-colors"
+          >
+            Email
           </a>
         </div>
       </div>
 
-      <!-- Right: Authentic Portrait Frame -->
       <div class="md:col-span-4 flex justify-start md:justify-end">
-        <div class="w-full max-w-[270px] aspect-[4/5] bg-chalk border border-concrete/40 relative overflow-hidden group">
+        <div class="w-full max-w-[270px] aspect-[4/5] border border-concrete/40 overflow-hidden">
           <img
             src="/images/harrison-keith.jpg"
             alt="Harrison Keith"
-            class="w-full h-full object-cover grayscale contrast-110 group-hover:grayscale-0 transition-all duration-500"
+            class="w-full h-full object-cover grayscale contrast-110 hover:grayscale-0 transition-all duration-500"
           />
-          <div class="absolute bottom-2 left-2 bg-carbon text-chalk text-[9px] font-technical uppercase tracking-widest px-2 py-0.5">
-            PORTRAIT / FIELD
-          </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- 02. High-Level Project Index (Raw Facts Only) -->
-  <section class="max-w-6xl mx-auto px-6 py-16 border-b border-concrete/30">
-    <div class="flex items-baseline justify-between mb-8">
-      <div>
-        <span class="text-xs font-technical uppercase tracking-extended text-concrete block mb-1">
-          INDEX 01 // SELECTED WORK
-        </span>
-        <h2 class="font-display font-extrabold text-xl sm:text-2xl text-carbon uppercase tracking-tight">
-          Project Index
-        </h2>
-      </div>
-      <a
-        href="/projects"
-        class="text-xs font-technical uppercase tracking-extended text-concrete hover:text-carbon font-bold"
-      >
-        Deep Dives & Decks &rarr;
-      </a>
-    </div>
-
-    <!-- Structured Index Table -->
-    <div class="divide-y divide-concrete/30 border-t border-concrete/30">
-      {projectIndex.map((item) => (
-        <div class="py-4 grid grid-cols-1 sm:grid-cols-12 gap-2 sm:gap-4 items-baseline text-xs font-technical group">
-          <div class="sm:col-span-3 font-display font-bold text-carbon group-hover:text-racingRed transition-colors uppercase tracking-wider">
-            {item.brand}
-          </div>
-          <div class="sm:col-span-4 font-sans text-sm text-carbon font-medium">
-            {item.name}
-          </div>
-          <div class="sm:col-span-3 text-concrete text-[11px] uppercase tracking-wider">
-            {item.discipline}
-          </div>
-          <div class="sm:col-span-2 sm:text-right flex items-center justify-between sm:justify-end gap-2">
-            <span class="text-concrete">{item.year}</span>
-            <a
-              href="/projects"
-              class={`px-2 py-0.5 text-[10px] uppercase font-bold tracking-wider ${
-                item.status === 'Public Case'
-                  ? 'border border-carbon text-carbon hover:bg-carbon hover:text-chalk'
-                  : 'bg-carbon text-chalk'
-              }`}
-            >
-              {item.status === 'Public Case' ? 'View' : 'Gated 🔒'}
-            </a>
-          </div>
-        </div>
-      ))}
-    </div>
-  </section>
-
-  <!-- 03. The Studio Wall Sneak Peek -->
-  <section class="max-w-6xl mx-auto px-6 py-16">
-    <div class="flex items-baseline justify-between mb-8">
-      <div>
-        <span class="text-xs font-technical uppercase tracking-extended text-concrete block mb-1">
-          INDEX 02 // CURATION
-        </span>
-        <h2 class="font-display font-extrabold text-xl sm:text-2xl text-carbon uppercase tracking-tight">
-          The Studio Wall & Taste Archive
-        </h2>
-      </div>
-      <a
-        href="/interests"
-        class="text-xs font-technical uppercase tracking-extended text-concrete hover:text-carbon font-bold"
-      >
-        Explore Archive &rarr;
-      </a>
-    </div>
-
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-      {previewArtifacts.map((item) => (
-        <a href="/interests" class="space-y-2 group block">
-          <div class="aspect-[4/3] w-full overflow-hidden bg-chalk border border-concrete/40 relative">
-            <img
-              src={item.image}
-              alt={item.title}
-              class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300"
-              loading="lazy"
-            />
-          </div>
-          <div class="text-[10px] font-technical text-concrete uppercase tracking-widest pt-1 flex justify-between">
-            <span>{item.categoryLabel}</span>
-            <span>{item.source}</span>
-          </div>
-          <h3 class="font-display font-bold text-sm text-carbon group-hover:text-racingRed transition-colors uppercase tracking-wider">
-            {item.title}
-          </h3>
-        </a>
-      ))}
     </div>
   </section>
 </Layout>

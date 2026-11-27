@@ -9,7 +9,7 @@
     scroll-behavior: smooth;
     background-color: var(--hk-bg-canvas);
     color: var(--hk-text-primary);
-    font-family: var(--hk-font-functional);
+    font-family: theme('fontFamily.sans');
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }

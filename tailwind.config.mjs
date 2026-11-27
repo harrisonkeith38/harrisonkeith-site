@@ -18,11 +18,11 @@ export default {
       },
       fontFamily: {
         // Primary Display (GT America Extended style)
-        display: ['"GT America Extended"', '"Helvetica Neue"', 'Arial', 'sans-serif'],
+        display: ['"GT America Extended"', 'Panchang', 'Arial', 'sans-serif'],
         // Secondary Functional (FF DIN style)
-        sans: ['"FF DIN"', '"DIN Alternate"', 'Roboto', 'Inter', 'sans-serif'],
+        sans: ['"FF DIN"', '"General Sans"', 'Arial', 'sans-serif'],
         // Technical Accent (Eurostile Next style)
-        technical: ['"Eurostile Next"', '"Eurostile"', '"Microgramma"', 'monospace', 'sans-serif'],
+        technical: ['"Eurostile Next"', '"Martian Mono Variable"', 'monospace'],
         mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
       },
       letterSpacing: {
