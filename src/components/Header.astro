@@ -1,18 +1,36 @@
+---
+import LockupSide from './LockupSide.astro';
+
+const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
+const navItems = [
+  { href: '/career', label: 'Career' },
+  { href: '/brand', label: 'Brand' },
+  { href: '/interests', label: 'My Interests' },
+];
+---
+
 <header class="sticky top-0 z-50 bg-chalk/95 backdrop-blur-md border-b border-concrete/30">
   <div class="max-w-6xl mx-auto px-6 h-18 py-3.5 flex items-center justify-between">
     <!-- Brand: HK mark and wordmark, cut from the supplied artwork -->
     <a href="/" class="flex items-center gap-3 select-none" aria-label="Harrison Keith, home">
-      <img src="/brand/hk-mark.png" alt="" width="456" height="182" class="h-6 w-auto" />
-      <div class="h-4 w-[1px] bg-concrete/50"></div>
-      <span class="flex flex-col gap-1.5">
-        <img src="/brand/hk-wordmark.png" alt="" width="847" height="46" class="h-[10px] sm:h-3 w-auto" />
-        <span class="flex items-center gap-1.5" aria-hidden="true">
-          <span class="w-4 h-1 bg-signalYellow transform -skew-x-[40deg] inline-block"></span>
-          <span class="w-4 h-1 bg-racingRed transform -skew-x-[40deg] inline-block"></span>
-          <span class="w-4 h-1 bg-alpineBlue transform -skew-x-[40deg] inline-block"></span>
-        </span>
-      </span>
+      <LockupSide />
     </a>
 
+    <nav aria-label="Primary" class="hidden md:flex items-center gap-8 text-xs font-technical uppercase">
+      {navItems.map((item) => (
+        <a href={item.href} aria-current={pathname === item.href ? 'page' : undefined} class={`py-2 border-b-2 hover:text-racingRed ${pathname === item.href ? 'border-racingRed font-bold' : 'border-transparent'}`}>
+          {item.label}
+        </a>
+      ))}
+    </nav>
+
+    <details class="md:hidden relative text-xs font-technical uppercase">
+      <summary class="list-none cursor-pointer py-3 px-1 font-bold">Menu</summary>
+      <nav aria-label="Primary mobile" class="absolute right-0 mt-1 w-48 bg-chalk border border-carbon p-3 flex flex-col">
+        {navItems.map((item) => (
+          <a href={item.href} aria-current={pathname === item.href ? 'page' : undefined} class="py-3 hover:text-racingRed">{item.label}</a>
+        ))}
+      </nav>
+    </details>
   </div>
 </header>

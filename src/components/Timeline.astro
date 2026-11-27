@@ -1,0 +1,313 @@
+---
+import { Image } from 'astro:assets';
+
+// Content lives in src/data/timeline.json (newest first). Badges live in src/assets/timeline/.
+const badges = import.meta.glob<{ default: ImageMetadata }>('../assets/timeline/*.png', {
+  eager: true,
+});
+
+interface Item {
+  id: string;
+  date: string;
+  badge: string;
+  headline: string;
+  blurb: string;
+  details: string[];
+}
+interface Props {
+  items: Item[];
+}
+const { items } = Astro.props;
+---
+
+<div class="path">
+  <div class="rail" aria-hidden="true">
+    <div class="fill"></div>
+  </div>
+  <ol>
+    {items.map((it) => {
+      const has = it.details.length > 0;
+      return (
+        <li class="item">
+          <button
+            class="badge"
+            type="button"
+            aria-label={has ? `${it.headline}, show details` : it.headline}
+            aria-expanded={has ? 'false' : undefined}
+            aria-controls={has ? `det-${it.id}` : undefined}
+          >
+            <Image
+              src={badges[`../assets/timeline/${it.badge}`].default}
+              alt=""
+              width={176}
+              height={176}
+              loading="lazy"
+            />
+          </button>
+          <div class="body">
+            <p class="date font-technical">{it.date}</p>
+            <h2 class="font-display">{it.headline}</h2>
+            <p class="blurb">{it.blurb}</p>
+            {has && (
+              <div class="details" id={`det-${it.id}`}>
+                <div>
+                  <ul>
+                    {it.details.map((d) => (
+                      <li>{d}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            )}
+          </div>
+        </li>
+      );
+    })}
+  </ol>
+</div>
+
+<style>
+  /* Without JavaScript every detail is simply visible. */
+  .path {
+    --size: 64px;
+    --accent: #b74438;
+    --line: #a6a6a6;
+    --radius: 0;
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    position: relative;
+    max-width: 46rem;
+    margin-top: 2rem;
+  }
+  ol,
+  ul,
+  p {
+    margin: 0;
+  }
+  ol {
+    list-style: none;
+    padding: 0;
+  }
+  .rail {
+    position: absolute;
+    left: calc(var(--size) / 2 - 1px);
+    top: calc(var(--size) / 2);
+    bottom: calc(var(--size) / 2);
+    width: 2px;
+    background: var(--line);
+  }
+  .fill {
+    width: 100%;
+    height: 0;
+    background: var(--accent);
+  }
+  .item {
+    position: relative;
+    display: grid;
+    grid-template-columns: var(--size) minmax(0, 1fr);
+    column-gap: 1rem;
+    padding-bottom: 3rem;
+  }
+  .badge {
+    width: var(--size);
+    height: var(--size);
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: none;
+    cursor: pointer;
+    perspective: 600px;
+    position: relative;
+    z-index: 1;
+  }
+  .badge :global(img) {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    transition: transform 0.25s var(--ease);
+  }
+  .badge:hover :global(img),
+  .item.open .badge :global(img) {
+    transform: scale(1.06);
+  }
+  .date {
+    margin: 0;
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  h2 {
+    margin: 0.35rem 0;
+    font-size: 1.05rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    line-height: 1.25;
+  }
+  .blurb {
+    margin: 0;
+  }
+  ul {
+    list-style: disc;
+    background: #f4f4f4;
+    margin-top: 0.75rem;
+    padding: 0.75rem 1rem 0.75rem 2rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+  }
+  li li::marker {
+    color: var(--accent);
+  }
+  .path:global(.ready) .details {
+    display: grid;
+    grid-template-rows: 0fr;
+    visibility: hidden;
+    transition:
+      grid-template-rows 0.45s var(--ease),
+      visibility 0.45s;
+  }
+  .path:global(.ready) .details > div {
+    overflow: hidden;
+  }
+  .path:global(.ready) .item:global(.open) .details {
+    grid-template-rows: 1fr;
+    visibility: visible;
+  }
+  .path:global(.motion) .badge,
+  .path:global(.motion) .body {
+    transition:
+      opacity 0.7s var(--ease),
+      transform 0.7s var(--ease);
+  }
+  .path:global(.motion) .item:not(:global(.in)) .badge,
+  .path:global(.motion) .item:not(:global(.in)) .body {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  /* Keyboard users must never land on an invisible badge. */
+  .path:global(.motion) .item .badge:focus-visible {
+    opacity: 1;
+    transform: none;
+  }
+  @media (min-width: 35em) {
+    .path {
+      --size: 88px;
+    }
+    .item {
+      column-gap: 1.5rem;
+    }
+  }
+</style>
+
+<script>
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  document.querySelectorAll<HTMLElement>('.path').forEach((path) => {
+    const items = [...path.querySelectorAll<HTMLElement>('.item')];
+    const fill = path.querySelector<HTMLElement>('.fill')!;
+    path.classList.add('ready');
+
+    items.forEach((item) => {
+      const button = item.querySelector<HTMLButtonElement>('.badge')!;
+      const img = button.querySelector('img')!;
+      const has = button.hasAttribute('aria-expanded');
+      const setOpen = (open: boolean) => {
+        if (!has) return;
+        item.classList.toggle('open', open);
+        button.setAttribute('aria-expanded', String(open));
+      };
+      const pinned = () => item.classList.contains('pinned');
+
+      button.addEventListener('pointerenter', (e) => {
+        if (e.pointerType === 'mouse') setOpen(true);
+      });
+      item.addEventListener('pointerleave', (e) => {
+        if (e.pointerType === 'mouse' && !pinned()) setOpen(false);
+      });
+      button.addEventListener('focus', () => {
+        if (button.matches(':focus-visible')) setOpen(true);
+      });
+      button.addEventListener('blur', () => {
+        if (!pinned()) setOpen(false);
+      });
+      button.addEventListener('click', () => {
+        if (!reduce) {
+          img.getAnimations().forEach((a) => a.cancel());
+          img.animate([{ transform: 'rotateY(0deg)' }, { transform: 'rotateY(720deg)' }], {
+            duration: 1100,
+            easing: 'cubic-bezier(0.45, 0, 0.15, 1)',
+          });
+        }
+        if (!has) return;
+        const pin = !pinned();
+        item.classList.toggle('pinned', pin);
+        setOpen(pin);
+      });
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key !== 'Escape') return;
+      items.forEach((item) => {
+        if (!item.classList.contains('open')) return;
+        item.classList.remove('pinned', 'open');
+        item.querySelector('.badge')!.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // Rail fill follows scroll position (shown with or without motion).
+    const progress = () => {
+      const box = path.getBoundingClientRect();
+      const p = (window.innerHeight * 0.55 - box.top) / box.height;
+      fill.style.height = `${Math.min(1, Math.max(0, p)) * 100}%`;
+    };
+
+    if (reduce) {
+      window.addEventListener('scroll', progress, { passive: true });
+      progress();
+      return;
+    }
+
+    path.classList.add('motion');
+    const seen = new IntersectionObserver(
+      (entries) =>
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('in');
+          seen.unobserve(entry.target);
+        }),
+      { rootMargin: '0px 0px -8% 0px' },
+    );
+    items.forEach((item) => seen.observe(item));
+
+    // Velocity stretch on native scrolling. The loop stops once things settle.
+    let last = window.scrollY;
+    let velocity = 0;
+    let running = false;
+    const frame = () => {
+      const y = window.scrollY;
+      velocity += (y - last - velocity) * 0.12;
+      last = y;
+      const settled = Math.abs(velocity) < 0.05;
+      const mid = window.innerHeight / 2;
+      items.forEach((item) => {
+        const box = item.getBoundingClientRect();
+        const distance = (box.top + box.height / 2 - mid) / window.innerHeight;
+        const offset = Math.max(-36, Math.min(36, velocity * distance * 2.2));
+        item.style.transform = settled ? '' : `translateY(${offset.toFixed(2)}px)`;
+      });
+      progress();
+      running = !settled;
+      if (running) requestAnimationFrame(frame);
+    };
+    window.addEventListener(
+      'scroll',
+      () => {
+        if (running) return;
+        running = true;
+        requestAnimationFrame(frame);
+      },
+      { passive: true },
+    );
+    progress();
+  });
+</script>

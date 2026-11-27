@@ -1,0 +1,21 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHeading from '../components/PageHeading.astro';
+import { projects } from '../data/projects';
+---
+
+<Layout title="My Interests | HARRISON KEITH">
+  <section class="max-w-6xl mx-auto w-full px-6 pt-14">
+    <PageHeading title="My Interests" intro="Hobby projects I have vibecoded." />
+    <ul class="grid gap-4 md:grid-cols-2">
+      {projects.map((p) => (
+        <li class="bg-chalk border border-concrete p-6 space-y-3">
+          <p class="font-technical text-[10px] uppercase text-racingRed font-bold">{p.status}</p>
+          <h2 class="font-display font-bold text-lg uppercase leading-snug">{p.name}</h2>
+          <p>{p.summary}</p>
+          {p.url && <a href={p.url} rel="noopener noreferrer" class="inline-block py-2 font-bold underline">Open project</a>}
+        </li>
+      ))}
+    </ul>
+  </section>
+</Layout>

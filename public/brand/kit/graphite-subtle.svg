@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" role="img" aria-labelledby="title desc">
+  <title id="title">Subtle graphite texture</title>
+  <desc id="desc">Low-contrast graphite field intended for restrained use.</desc>
+  <filter id="noise">
+    <feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="2" seed="14"/>
+    <feColorMatrix values="0 0 0 0 0.08 0 0 0 0 0.08 0 0 0 0 0.08 0 0 0 .16 0"/>
+  </filter>
+  <rect width="800" height="800" fill="#141414"/>
+  <rect width="800" height="800" filter="url(#noise)" opacity="0.35"/>
+</svg>
+

@@ -1,5 +1,6 @@
 {
   "redirects": [
-    { "source": "/(about|timeline|projects|interests|connect)", "destination": "/", "permanent": false }
+    { "source": "/(about|projects|connect)", "destination": "/", "permanent": false },
+    { "source": "/timeline", "destination": "/career", "permanent": false }
   ]
 }

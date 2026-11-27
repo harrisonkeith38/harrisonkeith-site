@@ -20,12 +20,14 @@
   }
 }
 
-/* Subtle architectural topography background overlay */
-.bg-topography {
-  background-image: url('/brand/topography-pattern.svg');
-  background-repeat: no-repeat;
-  background-position: top right;
-  background-size: 1100px auto;
+/* Contour-map background, fixed behind the whole page. Regenerate with scripts/topography.mjs */
+.bg-topography::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: url('/brand/topography-contours.svg') center / cover no-repeat;
+  pointer-events: none;
 }
 
 /* Authentic high-res photo background texture support */
