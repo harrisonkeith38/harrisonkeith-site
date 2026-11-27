@@ -1,0 +1,46 @@
+---
+import { Image } from 'astro:assets';
+import type { Milestone } from '../data/milestones';
+
+const marks = import.meta.glob<{ default: ImageMetadata }>('../assets/marks/*.png', { eager: true });
+interface Props {
+  m: Milestone;
+}
+const { m } = Astro.props;
+const logo = marks[`../assets/marks/${m.mark}.png`].default;
+---
+
+<article class="card [container-type:inline-size] bg-chalk border border-concrete border-t-[3px] border-t-carbon p-4 sm:p-5">
+  <div class="entry">
+    <div class="logo">
+      <Image src={logo} alt="" widths={[200, 400]} sizes="170px" class:list={['max-w-full w-auto h-auto object-contain', m.mark === '101st-airborne' ? 'max-h-[132px]' : 'max-h-[84px]']} />
+    </div>
+    <div class="min-w-0 space-y-1">
+      <h3 class="font-display font-extrabold uppercase text-lg sm:text-xl leading-tight">{m.title}</h3>
+      <p class="font-semibold leading-snug whitespace-pre-line">{m.subtitle}</p>
+      {m.location && <p class="font-technical uppercase text-[10px] text-racingRed">{m.location}</p>}
+      <p class="text-[15px]">{m.description}</p>
+    </div>
+  </div>
+
+  {m.details.length > 0 && (
+    <details class="group mt-3 border-t border-concrete">
+      <summary class="list-none cursor-pointer py-3 flex justify-between font-technical uppercase text-[10px] font-bold">
+        <span>More</span><span class="group-open:rotate-45 transition-transform motion-reduce:transition-none" aria-hidden="true">+</span>
+      </summary>
+      <ul class="list-disc pl-5 space-y-1 text-[14px] pb-1 marker:text-racingRed">
+        {m.details.map((d) => <li>{d}</li>)}
+      </ul>
+    </details>
+  )}
+</article>
+
+<style>
+  /* Logo floats free: above the text on narrow cards, beside it when there is room. */
+  .entry { display: flex; flex-direction: column; gap: 1rem; }
+  .logo { display: flex; align-items: center; min-height: 3rem; }
+  @container (min-width: 32rem) {
+    .entry { flex-direction: row; align-items: center; gap: 1.5rem; }
+    .logo { width: 10.5rem; flex: none; justify-content: center; }
+  }
+</style>

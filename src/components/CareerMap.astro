@@ -1,0 +1,113 @@
+---
+// Map drawing comes from scripts/career-map.mjs.
+// Hovering a state zooms in and filters the timeline; clicking keeps it.
+import map from '../assets/career-map.svg?raw';
+---
+
+<figure class="career-map mb-12">
+  <h2 class="font-display font-bold uppercase text-xl border-t border-carbon pt-5 mb-4">Where I've been</h2>
+  <div class="map bg-chalk border border-concrete overflow-hidden" set:html={map} />
+  <div class="mt-3 flex flex-wrap items-center justify-between gap-3 min-h-11">
+    <p class="status font-technical uppercase text-[11px] font-bold" aria-live="polite">Hover or tap a colored state</p>
+    <button type="button" class="reset font-technical uppercase text-[11px] font-bold border border-carbon px-3 py-2" hidden>Show all</button>
+  </div>
+</figure>
+
+<style>
+  .map :global(svg) { display: block; width: 100%; height: auto; }
+  .map :global(.state) { cursor: pointer; transition: opacity 0.2s; outline: none; }
+  .map :global(.state:focus-visible) { stroke: #141414; stroke-width: 3px; stroke-dasharray: 6 4; }
+  .map :global(.pin) { pointer-events: none; }
+  .map :global(svg.zoomed .state:not(.on)) { opacity: 0.25; }
+</style>
+
+<script>
+  const figure = document.querySelector<HTMLElement>('.career-map');
+  const svg = figure?.querySelector<SVGSVGElement>('svg');
+  if (figure && svg) {
+    const box = figure.querySelector<HTMLElement>('.map')!;
+    const status = figure.querySelector<HTMLElement>('.status')!;
+    const reset = figure.querySelector<HTMLButtonElement>('.reset')!;
+    const states = [...svg.querySelectorAll<SVGPathElement>('.state')];
+    const pins = [...svg.querySelectorAll<SVGGElement>('.pin')];
+    const rows = [...document.querySelectorAll<HTMLElement>('[data-place]')];
+    const years = [...document.querySelectorAll<HTMLElement>('[data-year]')];
+    const idle = status.textContent!;
+    const full = svg.getAttribute('viewBox')!.split(' ').map(Number);
+    const calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let pinned: string | null = null;
+    let current: string | null = null;
+    let frame = 0;
+    let settledAt = 0;
+
+    const draw = (v: number[]) => {
+      svg.setAttribute('viewBox', v.join(' '));
+      // keep dots and titles the same size while the map zooms
+      const k = v[2] / full[2];
+      pins.forEach((p) => {
+        const { x, y } = p.dataset;
+        p.setAttribute('transform', `translate(${x} ${y}) scale(${k}) translate(${-x!} ${-y!})`);
+      });
+    };
+
+    const zoom = (to: number[]) => {
+      cancelAnimationFrame(frame);
+      if (calm) return draw(to);
+      const from = svg.getAttribute('viewBox')!.split(' ').map(Number);
+      const start = performance.now();
+      const step = (now: number) => {
+        const t = Math.min(1, (now - start) / 550);
+        const e = 1 - Math.pow(1 - t, 3);
+        draw(from.map((n, i) => n + (to[i] - n) * e));
+        if (t < 1) frame = requestAnimationFrame(step);
+      };
+      frame = requestAnimationFrame(step);
+    };
+
+    const show = (code: string | null) => {
+      if (code === current) return;
+      current = code;
+      settledAt = performance.now() + 650;
+      const target = states.find((s) => s.dataset.state === code);
+      svg.classList.toggle('zoomed', !!target);
+      states.forEach((s) => s.classList.toggle('on', s === target));
+      zoom(target ? target.dataset.view!.split(' ').map(Number) : full);
+
+      let shown = 0;
+      rows.forEach((row) => {
+        row.hidden = !!code && row.dataset.place !== code;
+        if (!row.hidden) row.classList.toggle('right', shown++ % 2 === 1);
+      });
+      years.forEach((y) => (y.hidden = !y.querySelector('[data-place]:not([hidden])')));
+      status.textContent = !target
+        ? idle
+        : `${target.dataset.name}: ${shown === 0 ? 'nothing on the timeline yet' : shown === 1 ? '1 entry below' : `${shown} entries below`}`;
+    };
+
+    const pin = (code: string | null) => {
+      pinned = code;
+      states.forEach((s) => s.setAttribute('aria-pressed', String(s.dataset.state === code)));
+      reset.hidden = !code;
+      show(code);
+    };
+
+    states.forEach((s) => {
+      const code = s.dataset.state!;
+      // Mouse movement (not just "enter") so the zoom itself can't trigger a neighbouring state.
+      s.addEventListener('pointermove', (e) => {
+        if (e.pointerType === 'mouse' && performance.now() > settledAt) show(code);
+      });
+      s.addEventListener('click', () => pin(pinned === code ? null : code));
+      s.addEventListener('focus', () => s.matches(':focus-visible') && show(code));
+      s.addEventListener('blur', () => show(pinned));
+      s.addEventListener('keydown', (e) => {
+        if (e.key !== 'Enter' && e.key !== ' ') return;
+        e.preventDefault();
+        pin(pinned === code ? null : code);
+      });
+    });
+    box.addEventListener('pointerleave', (e) => e.pointerType === 'mouse' && show(pinned));
+    reset.addEventListener('click', () => pin(null));
+    document.addEventListener('keydown', (e) => e.key === 'Escape' && pin(null));
+  }
+</script>

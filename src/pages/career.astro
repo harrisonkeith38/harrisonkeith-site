@@ -1,13 +1,51 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import PageHeading from '../components/PageHeading.astro';
-import Timeline from '../components/Timeline.astro';
-import timeline from '../data/timeline.json';
+import MilestoneCard from '../components/MilestoneCard.astro';
+// Map archived for now. To restore: import CareerMap from '../components/CareerMap.astro'
+// and place <CareerMap /> just above the <div class="spine"> below.
+import { milestones, years, yearLabel } from '../data/milestones';
+
+let i = 0;
+const groups = years.map((y) => ({
+  y,
+  items: milestones.filter((m) => m.year === y).map((m) => ({ m, right: i++ % 2 === 1 })),
+}));
 ---
 
 <Layout title="Career | HARRISON KEITH">
-  <section class="max-w-6xl mx-auto w-full px-6 pt-14">
-    <PageHeading title="Career" intro="Hover an icon for more. Click it to keep it open." />
-    <Timeline items={timeline.items} />
+  <section class="max-w-5xl mx-auto w-full px-6 pt-14">
+    <PageHeading title="Career" />
+    <div class="spine relative">
+      {groups.map((g) => (
+        <section aria-label={yearLabel(g.y)} data-year>
+          <div class="pin">
+            <h2 class="font-technical font-bold bg-carbon text-chalk text-sm px-4 py-2">{yearLabel(g.y)}</h2>
+          </div>
+          {g.items.map(({ m, right }) => (
+            <div class:list={['row', { right }]} data-place={m.location.slice(-2)}>
+              <MilestoneCard m={m} />
+            </div>
+          ))}
+        </section>
+      ))}
+    </div>
   </section>
 </Layout>
+
+<style>
+  [hidden] { display: none !important; }
+  .spine::before { content: ''; position: absolute; top: 0; bottom: 0; left: 8px; width: 2px; background: #141414; }
+  /* The year stays pinned under the header until its entries have scrolled past. */
+  .pin { position: sticky; top: 4.5rem; z-index: 10; display: flex; padding: 0.75rem 0; margin-bottom: 0.5rem; background: #f4f4f4; }
+  .row { position: relative; padding-left: 2rem; margin-bottom: 1.25rem; }
+  .row::before { content: ''; position: absolute; left: 8px; top: 2.5rem; width: 1.5rem; height: 2px; background: #141414; }
+  @media (min-width: 768px) {
+    .spine::before { left: calc(50% - 1px); }
+    .pin { justify-content: center; background: none; pointer-events: none; }
+    .row { width: 50%; padding: 0 2rem 0 0; }
+    .row.right { margin-left: 50%; padding: 0 0 0 2rem; }
+    .row::before { left: auto; right: 0; width: 2rem; }
+    .row.right::before { left: 0; right: auto; }
+  }
+</style>
