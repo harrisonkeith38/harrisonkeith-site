@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" role="img" aria-labelledby="title">
+  <title id="title">Growth and momentum</title>
+  <g transform="translate(7 0) skewX(-12)" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M7 39h34M10 35l8-9 7 4 12-17" stroke="#141414" stroke-width="2.25"/>
+    <path d="M30 13h7v7" stroke="#141414" stroke-width="2.25"/>
+    <rect x="8" y="33" width="4" height="4" stroke="#E4BD25" stroke-width="1.5"/>
+    <rect x="16" y="24" width="4" height="4" stroke="#B74438" stroke-width="1.5"/>
+    <rect x="23" y="28" width="4" height="4" stroke="#438CA9" stroke-width="1.5"/>
+  </g>
+</svg>

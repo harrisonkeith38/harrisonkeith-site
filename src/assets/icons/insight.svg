@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" role="img" aria-labelledby="title">
+  <title id="title">Insight and focus</title>
+  <g transform="translate(7 0) skewX(-12)" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M4 24c5-8 12-12 20-12s15 4 20 12c-5 8-12 12-20 12S9 32 4 24Z" stroke="#141414" stroke-width="2.25"/>
+    <circle cx="24" cy="24" r="7" stroke="#141414" stroke-width="2.25"/>
+    <path d="M24 10V6m0 36v-4M10 24H6m36 0h-4" stroke="#A6A6A6" stroke-width="1.25"/>
+    <path d="M21 24h6" stroke="#438CA9" stroke-width="2.25"/>
+  </g>
+</svg>

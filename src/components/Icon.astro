@@ -1,0 +1,23 @@
+---
+// HK icon library (brand/ICONOGRAPHY.md). The supplied SVGs are used as-is; never redraw them.
+// "mono" paints every stroke in the surrounding text color, as the guide asks for one-color use.
+const files = import.meta.glob<string>('../assets/icons/*.svg', { query: '?raw', import: 'default', eager: true });
+
+interface Props {
+  name: string;
+  size?: number;
+  mono?: boolean;
+}
+const { name, size = 24, mono = false } = Astro.props;
+
+let svg = files[`../assets/icons/${name}.svg`];
+if (!svg) throw new Error(`Unknown icon: ${name}`);
+// Decorative here: a text label always sits beside the icon.
+svg = svg
+  .replace(/<title[\s\S]*?<\/title>/, '')
+  .replace(/ role="img"| aria-labelledby="[^"]*"/g, '')
+  .replace('<svg ', `<svg width="${size}" height="${size}" aria-hidden="true" focusable="false" class="shrink-0" `);
+if (mono) svg = svg.replace(/stroke="#[0-9A-Fa-f]{6}"/g, 'stroke="currentColor"');
+---
+
+<Fragment set:html={svg} />

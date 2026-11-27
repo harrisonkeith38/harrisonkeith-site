@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" role="img" aria-labelledby="title">
+  <title id="title">Experience and journey</title>
+  <g transform="translate(7 0) skewX(-12)" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M7 35c5-9 10-12 16-8s10 1 17-11M7 28c6-7 11-9 17-5s10 0 15-9M8 41c5-9 10-12 16-8s10 1 18-10" stroke="#A6A6A6" stroke-width="1.5"/>
+    <circle cx="9" cy="35" r="4" stroke="#141414" stroke-width="2.25"/>
+    <path d="m36 11 5 2-1 5" stroke="#141414" stroke-width="2.25"/>
+    <path d="M7 35h4" stroke="#E4BD25" stroke-width="2.25"/>
+  </g>
+</svg>

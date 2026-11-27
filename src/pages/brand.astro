@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import PageHeading from '../components/PageHeading.astro';
 import LockupSide from '../components/LockupSide.astro';
+import Icon from '../components/Icon.astro';
 
 // "ink" is whichever of Carbon or Chalk reads clearly on that swatch.
 const colors = [
@@ -23,9 +24,14 @@ const materials = [
   { name: 'Graphite', file: 'graphite-subtle.svg' },
 ];
 const icons = [
-  { name: 'Arrow', file: 'arrow-up-right.svg' },
-  { name: 'Grid', file: 'grid.svg' },
-  { name: 'Signal', file: 'signal.svg' },
+  { name: 'Identity', file: 'identity' },
+  { name: 'Direction', file: 'direction' },
+  { name: 'Audience', file: 'audience' },
+  { name: 'Communication', file: 'communication' },
+  { name: 'Retail', file: 'retail' },
+  { name: 'Product', file: 'product' },
+  { name: 'Insight', file: 'insight' },
+  { name: 'Growth', file: 'growth' },
 ];
 const h2 = 'font-display font-bold text-xl uppercase border-t border-carbon pt-5 mb-6';
 ---
@@ -110,11 +116,11 @@ const h2 = 'font-display font-bold text-xl uppercase border-t border-carbon pt-5
 
     <section>
       <h2 class={h2}>Icons</h2>
-      <ul class="grid grid-cols-3 gap-4">
+      <ul class="grid grid-cols-2 sm:grid-cols-4 gap-4">
         {icons.map((i) => (
-          <li class="bg-chalk border border-concrete flex flex-col items-center">
-            <img src={`/brand/kit/${i.file}`} alt="" width="48" height="48" loading="lazy" class="w-16 h-16 mt-8 mb-4" />
-            <p class="font-technical text-[10px] uppercase font-bold p-4">{i.name}</p>
+          <li class="bg-chalk border border-concrete flex flex-col items-center gap-4 px-2 py-7">
+            <Icon name={i.file} size={64} />
+            <p class="font-technical text-[10px] uppercase font-bold text-center">{i.name}</p>
           </li>
         ))}
       </ul>

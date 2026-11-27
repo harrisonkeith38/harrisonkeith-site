@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" role="img" aria-labelledby="title">
+  <title id="title">Connected brand system</title>
+  <g transform="translate(7 0) skewX(-12)" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M8 8h12v12H8V8Zm18 0h12v12H26V8ZM8 26h12v12H8V26Zm18 0h12v12H26V26Z" stroke="#141414" stroke-width="2.25"/>
+    <path d="M20 14h6M14 20v6m18-6v6m-12 6h6" stroke="#A6A6A6" stroke-width="1.25"/>
+    <path d="M29 11h6" stroke="#E4BD25" stroke-width="2.25"/>
+  </g>
+</svg>

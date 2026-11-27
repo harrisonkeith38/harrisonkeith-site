@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" role="img" aria-labelledby="title">
+  <title id="title">Retail environment</title>
+  <g transform="translate(7 0) skewX(-12)" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M8 17 12 7h24l5 10v4H8v-4Zm3 4v20h27V21M18 41V29h12v12" stroke="#141414" stroke-width="2.25"/>
+    <path d="M12 14h8" stroke="#E4BD25" stroke-width="2.25"/>
+    <path d="M20 14h8" stroke="#B74438" stroke-width="2.25"/>
+    <path d="M28 14h8" stroke="#438CA9" stroke-width="2.25"/>
+  </g>
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" role="img" aria-labelledby="title">
+  <title id="title">Product and offering</title>
+  <g transform="translate(7 0) skewX(-12)" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="m24 5 16 9v20l-16 9L8 34V14l16-9Z" stroke="#141414" stroke-width="2.25"/>
+    <path d="m8 14 16 9 16-9M24 23v20" stroke="#141414" stroke-width="2.25"/>
+    <path d="m16 10 16 9" stroke="#A6A6A6" stroke-width="1.25"/>
+    <path d="m32 19 8-5" stroke="#E4BD25" stroke-width="2.25"/>
+  </g>
+</svg>

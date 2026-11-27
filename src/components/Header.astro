@@ -1,10 +1,12 @@
 ---
 import LockupSide from './LockupSide.astro';
+import Icon from './Icon.astro';
 
 const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
 const navItems = [
-  { href: '/path', label: 'My Path' },
-  { href: '/brand', label: 'My Brand' },
+  { href: '/', label: 'Home', icon: 'system-grid' },
+  { href: '/path', label: 'My Path', icon: 'direction' },
+  { href: '/brand', label: 'My Brand', icon: 'identity' },
 ];
 ---
 
@@ -17,7 +19,8 @@ const navItems = [
 
     <nav aria-label="Primary" class="hidden md:flex items-center gap-8 text-xs font-technical uppercase">
       {navItems.map((item) => (
-        <a href={item.href} aria-current={pathname === item.href ? 'page' : undefined} class={`py-2 border-b-2 hover:text-racingRed ${pathname === item.href ? 'border-racingRed font-bold' : 'border-transparent'}`}>
+        <a href={item.href} aria-current={pathname === item.href ? 'page' : undefined} class={`flex items-center gap-2 py-2 border-b-2 hover:text-racingRed ${pathname === item.href ? 'border-racingRed font-bold' : 'border-transparent'}`}>
+          <Icon name={item.icon} />
           {item.label}
         </a>
       ))}
@@ -27,7 +30,7 @@ const navItems = [
       <summary class="list-none cursor-pointer py-3 px-1 font-bold">Menu</summary>
       <nav aria-label="Primary mobile" class="absolute right-0 mt-1 w-48 bg-chalk border border-carbon p-3 flex flex-col">
         {navItems.map((item) => (
-          <a href={item.href} aria-current={pathname === item.href ? 'page' : undefined} class="py-3 hover:text-racingRed">{item.label}</a>
+          <a href={item.href} aria-current={pathname === item.href ? 'page' : undefined} class="flex items-center gap-3 py-3 hover:text-racingRed"><Icon name={item.icon} />{item.label}</a>
         ))}
       </nav>
     </details>

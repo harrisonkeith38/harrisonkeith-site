@@ -1,4 +1,6 @@
 ---
+import Icon from './Icon.astro';
+
 const currentYear = new Date().getFullYear();
 ---
 
@@ -10,7 +12,7 @@ const currentYear = new Date().getFullYear();
 
       <!-- Contact links -->
       <div class="flex flex-col gap-2 text-xs font-technical">
-        <a href="https://www.linkedin.com/in/harrison-keith38/" rel="noopener noreferrer" class="text-carbon font-bold hover:text-racingRed py-1 uppercase tracking-extended">LinkedIn &rarr;</a>
+        <a href="https://www.linkedin.com/in/harrison-keith38/" rel="noopener noreferrer" class="flex items-center gap-2 text-carbon font-bold hover:text-racingRed py-1 uppercase tracking-extended"><Icon name="communication" />LinkedIn</a>
       </div>
     </div>
 

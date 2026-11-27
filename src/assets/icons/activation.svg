@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" role="img" aria-labelledby="title">
+  <title id="title">Activation and launch</title>
+  <g transform="translate(7 0) skewX(-12)" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M12 32 8 40l8-4m20-20 4-8-8 4M17 31 31 17m-18 2 5 1m10 10 1 5" stroke="#141414" stroke-width="2.25"/>
+    <path d="m20 28-4-4 11-11 8-2-2 8-11 11-2-2Z" stroke="#141414" stroke-width="2.25"/>
+    <path d="M10 28H5M20 38v5M8 36l-4 4" stroke="#A6A6A6" stroke-width="1.5"/>
+    <path d="m29 13 4-1" stroke="#B74438" stroke-width="2.25"/>
+  </g>
+</svg>
