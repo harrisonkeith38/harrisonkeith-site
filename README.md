@@ -9,11 +9,12 @@ Harrison Keith's personal site. Static [Astro](https://astro.build) site with Ta
 | `/` | Name, short intro, LinkedIn, headshot | `src/pages/index.astro` |
 | `/path` | My Path: timeline with the year pinned while scrolling | `src/data/milestones.ts` |
 | `/brand` | Logo, color, type, materials, topography, icons | `src/pages/brand.astro` |
+| `/projects` | My Projects: hobby projects | `src/data/projects.ts` |
 | (404) | Not-found page | `src/pages/404.astro` |
 
 My Interests is hidden: rename `src/pages/_interests.astro` back to `interests.astro`, restore its nav link in `Header.astro` and remove its redirect.
 
-`vercel.json` redirects old URLs (`/about`, `/projects`, `/connect`, `/career`, `/timeline`).
+`vercel.json` redirects old URLs (`/about`, `/connect`, `/career`, `/timeline`).
 
 ## Run it
 

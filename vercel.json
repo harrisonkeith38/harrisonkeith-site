@@ -1,7 +1,7 @@
 {
   "redirects": [
     {
-      "source": "/(about|projects|connect)",
+      "source": "/(about|connect)",
       "destination": "/",
       "permanent": false
     },
